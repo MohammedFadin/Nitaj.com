@@ -1,0 +1,92 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]> <html class="no-js" lang="en"> 		   <![endif]-->
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
+    <link rel="stylesheet" href="js/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+    <link rel="stylesheet" href="js/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/fractionslider.css">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/colors.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700&amp;subset=latin,cyrillic-ext,greek-ext,greek,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- Tabs resources -->
+    <link href="css/tabs/preview.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href="css/tabs/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/builtin.css">
+    <!--[if IE 7]>
+        <link href="styles/font-awesome-ie7.min.css" rel="stylesheet" />
+    <![endif]-->
+    <!--[if IE 8]>
+        <style type="text/css">
+        .navbar-inner{
+            filter:none;
+        }
+         </style>
+        <![endif]-->  
+			<div class="navbar navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						 <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a> <a href="{{ url:base }}" class="brand">
+			       {{ theme:image file="Medicine-Ambulance-icon.png" style="margin-top:-15px;"}}
+				   {{ settings:site_name }}
+						 </a>
+						<div class="nav-collapse collapse navbar-responsive-collapse">
+							<ul class="nav">
+								{{ navigation:links group="header" indent="Y" }}
+								<li> 
+									{{ search:form class="search-form" }} 
+									{{ /search:form }}
+								</li>
+							</ul>
+							{{ if user:logged_in }}
+							<ul class="nav pull-right">
+								<li class="divider-vertical">
+								</li>
+								<li class="dropdown">
+									 <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <!-- <img class="img-circle" src="{{ helper:gravatar url-only='Y' }}" height="25" width="25"/> --> {{ theme:image file="doctor-icon.png" style="margin-top:-13px;"}}Salam Dr. {{ user:username }}!<strong class="caret"></strong></a>
+									<ul class="dropdown-menu">
+										{{ if settings:enable_profiles }}
+										<li>
+											<a href="{{ url:site uri='edit-profile' }}">Account Setting</a>
+										</li>
+										{{ endif }}
+										{{ if user:has_cp_permissions }}
+										<li>
+											<a href="{{ url:site uri='admin' }}" target="_blank">Control Panel</a>
+										</li>
+										{{ endif }}
+										<li class="divider">
+										</li>
+										<li>
+											<a href="{{ url:site uri='users/logout' }}">Logout</a>
+										</li>
+									</ul>
+								</li>								
+							</ul>
+							
+							{{ else }}
+														<ul class="nav pull-right">
+								<li> 
+									<a href="{{ url:site uri='users/login' }}">{{ theme:image file="doctor-icon.png" style="margin-top:-13px;"}}Login Doctor!</a>
+								</li>
+								<li>
+									<a href="{{ url:site uri='users/register' }}"> Create your Account</a>
+								</li>
+								<li class="divider-vertical">
+								</li>
+							</ul>
+							{{ endif }}
+						</div>
+
+					</div>
+				</div>
+			</div>	

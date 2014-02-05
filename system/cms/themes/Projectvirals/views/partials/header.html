@@ -1,0 +1,134 @@
+    <!-- Header -->
+    
+    <div class="cont-header">
+
+      <!-- Menu -->
+      <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top" >
+          <div class="navbar-inner">
+            <a href="#" title="" id="menu_search"  data-html="true" data-toggle="popover" data-placement="left" data-content="<form action='' method='get' class='mobile-search'><input type='text' placeholder='Search...'></form>"  class="share"><i class="icon-search icon-large"></i></a>
+              <div id="menu_bg"><i class="icon-reorder icon-2x"></i></div>
+              <div id="menu_cont">
+              <select id="menu" name="menu">
+               <option value="">- Select -</option>
+                <option value="index.html">Home</option>
+                <option value="features.html">Features</option>
+                <option disabled="disabled">Portfolio</option>
+                <option value="portfolio-full-width.html"> - Full Width Portfolio</option>
+                <option value="portfolio-masonry.html"> - Masonry Portfolio</option>
+                <option value="portfolio-single-image.html"> - Single Portfolio Image</option>
+                <option value="portfolio-single-video.html"> - Single Portfolio Video</option>
+                <option disabled="disabled">Pages</option>
+                <option value="features.html"> - Editorial Items</option>
+                <option value="full-width-page.html"> - Full Width Page</option>
+                <option value="single-page.html"> - Single Page</option>
+                <option value="services.html"> - Services</option>
+                <option value="team.html"> - Team</option>
+                <option value="icons.html"> - Icons</option>
+                <option value="pricing-tables.html"> - Pricing Tables</option>
+                <option value="page-not-found.html"> - 404 Page</option>
+                <option disabled="disabled">Blog</option>
+                <option value="blog.html"> - Blog Categories</option>
+                <option value="view_project.html"> - View Project</option>
+                <option value="contact.html">Contact</option>
+              </select>
+              </div>
+              <!-- Logo -->
+              <div class="brand_logo">
+                <a href="index.html"><span>Hub</span>It</a>
+              </div>
+              <!-- Logo end -->
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <li><a href="index.html" title="">Home</a></li>
+                  <li>
+                    <a href="features.html" title="">Features</a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" title="">Portfolio </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="portfolio-full-width.html" title="">Full Width Portfolio</a></li>
+                      <li><a href="portfolio-masonry.html" title="">Masonry Portoflio</a></li>
+                      <li><a href="portfolio-single-image.html" title="">Single Portfolio Image</a></li>
+                      <li><a href="portfolio-single-video.html" title="">Single Portfolio Video</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a title="">Pages</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="features.html" title="">Editorial Items</a></li>
+                      <li><a href="full-width-page.html" title="">Full Width Page</a></li>
+                      <li><a href="single-page.html" title="">Single Page</a></li>
+                      <li><a href="services.html" title="">Services</a></li>
+                      <li><a href="team.html" title="">Team</a></li>
+                      <li><a href="icons.html" title="">Icons</a></li>
+                      <li><a href="pricing-tables.html" title="">Pricing Tables</a></li>
+                      <li><a href="page-not-found.html" title="">404 Page</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown active">
+                    <a title="">Blog</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="blog.html" title="">Blog Categories</a></li>
+                      <li><a href="view_project.html" title="">View Project</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="contact.html" title="">Contact</a></li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- Menu end -->
+    </div>
+    <!-- Header End -->
+<!--     
+   <div class="navbar-inner">
+     <div class="container">
+       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </a>
+       <a class="brand" href="../">Ca va ENCORE parler de bits!</a>
+       <div class="nav-collapse" id="main-menu">
+        <ul class="nav" id="main-menu-left">
+          {{ navigation:links group="header" }}
+        </ul>
+        <ul class="nav pull-right" id="main-menu-right">
+          {{ if user:not_logged_in }}<li><a href="{{ url:site }}register">{{ helper:lang line="user_register_btn" }}</a></li>{{ endif }}
+          <li class="dropdown" id="preview-menu">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ if user:logged_in }}Your panel {{ else }}Login {{ endif }}<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                {{ if user:logged_in }}
+                {{ if settings:enable_profiles }}
+                  <a href="{{ url:site uri='my-profile' }}">{{ helper:gravatar email=user:email size="16" }} {{ user:display_name }}</a>
+                {{ else }}
+                  {{ helper:gravatar email=user:email size="20" }} {{ user:display_name }}
+                {{ endif }}
+                {{ if settings:enable_profiles }}
+                  <a href="{{ url:site uri='edit-profile' }}">{{ helper:lang line="edit_profile_label" }}</a>
+                {{ endif }}
+                {{ if user:has_cp_permissions }}
+                  <a href="{{ url:site uri='admin' }}" target="_blank">{{ helper:lang line="global:control-panel" }}</a>
+                {{ endif }}
+                <a href="{{ url:site uri='users/logout' }}">{{ helper:lang line="logout_label" }}</a>
+              {{ else }}
+                <form action="{{ url:site uri='users/login' }}" method="post" accept-charset="utf-8" id="login-small" class="search">
+                  <input type="hidden" style="margin-bottom: 15px;" name="redirect_to" value="{{ url:current }}" />
+                  <input type="text" id="email" style="margin-bottom: 15px;" name="email" maxlength="120" placeholder="{{ helper:lang line="user_email" }}" />
+                  <input type="password" id="password" name="password" maxlength="20" placeholder="{{ helper:lang line="user_password" }}" />
+                  <input type="checkbox" style="float: left; margin-right: 10px;"  id="remember-checksidebar" name="remember" value="1"  />
+                  <label class="string optional" for="user_remember_me">{{ helper:lang line="user_remember" }}</label>
+                  <input type="submit" class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" value="{{ helper:lang line='user_login_btn' }}" name="btnLogin" />
+                  <button class="btn" style="clear: left; width: 100%; height: 32px; font-size: 13px;"><?php echo anchor('users/reset_pass', lang('user_reset_password_link'));?></button>
+                </form>
+              {{ endif }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+       </div>
+     </div>
+   </div> -->

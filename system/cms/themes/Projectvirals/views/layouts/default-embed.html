@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ theme:partial name="metadata" }}
+  </head>
+  <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+   <!--  {{# theme:js file="bsa.js" #}} -->
+  <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      {{ theme:partial name="header" }}
+    </div>
+
+    <div class="container">
+      <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <div class="row">
+          <div class="span12">
+            <p>
+              {{ theme:image file="logo.png" }}
+            </p>
+          </div>
+        </div>
+
+          <div class="subnav">
+            <ul class="nav nav-pills">
+              <li><a href="#default">Typography</a></li>
+              <li><a href="#navbar">Navbar</a></li>
+              <li><a href="#buttons">Buttons</a></li>
+              <li><a href="#forms">Forms</a></li>
+              <li><a href="#tables">Tables</a></li>
+              <li><a href="#miscellaneous">Miscellaneous</a></li>
+            </ul>
+          </div>
+
+      </header>
+    
+      {{ theme:partial name="breadcrumbs"}}
+      {{ session:messages success="alert alert-success" notice="alert alert-block" error="alert alert-error" }}
+      
+      {{ template:body }}
+
+      <br/><br/><br/><br/>
+
+  <!-- Footer
+    ================================================== -->
+      <hr/>
+
+      <footer id="footer">
+        {{ theme:partial name="footer" }}
+      </footer>
+
+    </div><!-- /container -->
+
+  <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+     {{ theme:js file="jquery.min.js }}
+    {{ theme:js file="bootstrap.min.js" }}
+    {{ theme:js file="custom.js" }}
+    {{ theme:js file="custom.js" }}
+    {{ theme:js file="fancybox/jquery.fancybox.pack.js" }}
+    {{ theme:js file="fancybox/helpers/jquery.fancybox-buttons.js" }}
+    {{ theme:js file="fancybox/helpers/jquery.fancybox-media.js" }}
+    {{ theme:js file="fancybox/helpers/jquery.fancybox-thumbs.js" }}
+    {{ theme:js file="instagram.min.js" }}
+
+  <script type="text/javascript">
+  
+    $(document).ready(function(){    
+        
+        jQuery.fn.spectragram.accessData = {
+          accessToken: '197116726.dd97aa2.900236bda3d742189a302a5fd8a44686',
+          clientID: 'dd97aa2734a543aeaa1022900970b486'        
+        };
+        
+        $('#instagram').spectragram('getUserFeed',{
+          query: 'adrianengine',
+          max: 4
+        }); 
+        $("[rel='tooltip']").tooltip(); 
+
+        $('#panel2').click(function(){
+          $('#foundersWidget').hide();
+          alert("ASFASDF");
+        })      
+    });   
+    
+  </script>    
+
+  <script type="text/javascript">
+  
+      var apiKey = 'f09cbc1c2d8305c477e39fab84453aaa';
+      var userId = '69345311@N02';
+      var tag = '';
+      var perPage = '25';
+      var showOnPage = '4';
+  </script>
+    {{ theme:js file="jquery.flickr.js" }}
+    {{ theme:js file="jquery.fractionslider.js" }}
+    {{ theme:js file="fraction.slider.init.js" }}
+    {{ theme:js file="angle.slider.js" }}
+  <script type="text/javascript">
+
+      pSlider.rows = 2;
+      pSlider.lock = true;
+      pSlider.loadScroll();
+  </script>
+  </body>
+</html>
