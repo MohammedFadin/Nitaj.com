@@ -21,13 +21,16 @@
                     {{if settings:enable_profiles}}
                       <li>
                         <a href="{{url:site uri='edit-profile'}}">{{helper:lang line="edit_profile_label"}}</a>
-                      </li>
+                      </li>                   
                     {{endif}}
                     {{if user:has_cp_permissions}}
                       <li>
                         <a href="{{ url:site uri='admin' }}" target="_blank">{{ helper:lang line="global:control-panel" }}</a>
                       </li>
                     {{endif}}
+                      <li>
+                        <a href="{{url:site uri='users/logout'}}">{{helper:lang line="user:logout"}}</a>
+                      </li>                     
                     </ul>
                   </li>
                   {{else}}

@@ -3,55 +3,23 @@
   <head>
     {{ theme:partial name="metadata" }}
   </head>
-  <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+  <body>
   <!-- Navbar
     ================================================== -->
     <div class="navbar navbar-fixed-top">
       {{ theme:partial name="header" }}
     </div>
-
-    <div class="container">
-      <!-- Masthead
-      ================================================== -->
-      <header class="jumbotron subhead" id="overview">
-        <div class="row">
-          <div class="span12">
-            <p>
-              {{ theme:image file="logo.png" }}
-            </p>
-          </div>
-        </div>
-
-          <div class="subnav">
-            <ul class="nav nav-pills">
-              <li><a href="#default">Typography</a></li>
-              <li><a href="#navbar">Navbar</a></li>
-              <li><a href="#buttons">Buttons</a></li>
-              <li><a href="#forms">Forms</a></li>
-              <li><a href="#tables">Tables</a></li>
-              <li><a href="#miscellaneous">Miscellaneous</a></li>
-            </ul>
-          </div>
-
-      </header>
-    
-      {{ theme:partial name="breadcrumbs"}}
-      {{ session:messages success="alert alert-success" notice="alert alert-block" error="alert alert-error" }}
-      
-      {{ template:body }}
-
-      <br/><br/><br/><br/>
-
-  <!-- Footer
-    ================================================== -->
-      <hr/>
-
-      <footer id="footer">
+    <div id="wrap">
+      <div class="container">    
+        <!-- {{ theme:partial name="breadcrumbs"}} -->
+        {{ session:messages success="alert alert-success" notice="alert alert-block" error="alert alert-error" }}
+        {{ template:body}}
+      </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
         {{ theme:partial name="footer" }}
-      </footer>
-
-    </div><!-- /container -->
-
   <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -60,15 +28,12 @@
     <script src="system/cms/themes/Projectvirals/js/custom.js"></script>
     <script type="text/javascript" src="system/cms/themes/Projectvirals/js/fancybox/jquery.fancybox.pack.js?v=2.1.4"></script>
     <script type="text/javascript" src="system/cms/themes/Projectvirals/js/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-
     <script type="text/javascript" src="system/cms/themes/Projectvirals/js/fancybox/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
     <script type="text/javascript" src="system/cms/themes/Projectvirals/js/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
     <script src="system/cms/themes/Projectvirals/js/twitter.feed.js"></script>
     <script src="system/cms/themes/Projectvirals/js/instagram.min.js"></script>
   <script type="text/javascript">
-  
-    $(document).ready(function(){    
-        
+    $(document).ready(function(){            
         jQuery.fn.spectragram.accessData = {
           accessToken: '197116726.dd97aa2.900236bda3d742189a302a5fd8a44686',
           clientID: 'dd97aa2734a543aeaa1022900970b486'        
@@ -85,7 +50,6 @@
           alert("ASFASDF");
         })      
     });   
-    
   </script>       
     <script src="system/cms/themes/Projectvirals/js/twitter.feed.footer.js"></script>
   <script type="text/javascript">
@@ -94,11 +58,8 @@
       JQTWEET.user = 'twitter';
       JQTWEET.appendTo = '#foot-twitts';
       JQTWEET.loadTweets();
-      
-  
   </script>
   <script type="text/javascript">
-  
       var apiKey = 'f09cbc1c2d8305c477e39fab84453aaa';
       var userId = '69345311@N02';
       var tag = '';
@@ -111,12 +72,9 @@
   <script src="system/cms/themes/Projectvirals/js/jquery.monochrome.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="system/cms/themes/Projectvirals/js/angle.slider.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">
-
       pSlider.rows = 2;
       pSlider.lock = true;
       pSlider.loadScroll();
-  
   </script>
-
   </body>
 </html>

@@ -14,6 +14,9 @@ $lang['user:register_step2']                   = '<strong>Step 2:</strong> Activ
 
 $lang['user:login_header']                     = 'Login';
 
+// Footer
+$lang['contact_us']								= 'Get in touch!';
+
 // titles
 $lang['user:add_title']                        = 'Add User';
 $lang['user:list_title'] 					   = 'Users';
@@ -134,7 +137,8 @@ $lang['user:already_logged_in']                = 'You are already logged in. Ple
 $lang['user:login_incorrect']                  = 'E-mail or password do not match. Please check your login and make sure CAPS LOCK is not on.';
 $lang['user:inactive']                         = 'The account you are trying to access is currently inactive.<br />Check your e-mail for instructions on how to activate your account - <em>it may be in the junk folder</em>.';
 
-
+// Logout
+$lang['user:logout']							= 'Logout';
 // Logged Out
 $lang['user:logged_out']                       = 'You have been logged out.';
 
