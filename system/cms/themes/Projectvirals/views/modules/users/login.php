@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="system/cms/themes/Projectvirals/css/clear_forms/less/styles.css" type="text/css" />           
-    <div class="block blur2">
+    <div class="block">
         <div class="container">
         	<div class="row-fluid">
             	<!-- errors valid -->
@@ -25,8 +25,8 @@
                             <p>
                                 You can also sign in using your Facebook Account or Twitter Account
                             </p>
-                            <a href="" class="btn btn-large btn-block btn-fb">Login with Facebook</a>
-                            <a href="" class="btn btn-large btn-block btn-twitter">Login with Twitter</a>
+                            <a href="{{ url:site uri='social/session/facebook' }}" class="btn btn-large btn-block btn-fb">Login with Facebook</a>
+                            <a href="{{ url:site uri='social/session/twitter' }}" class="btn btn-large btn-block btn-twitter">Login with Twitter</a>
                         </div>
                         <div class="col2">
                             <div class="form-heading"><!-- without social -->

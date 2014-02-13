@@ -9,6 +9,7 @@ $lang['profile_updated_on']           			= 'Updated On';
 $lang['user:profile_fields_label']	 		 	= 'Profile Fields';
 
 $lang['user:register_header']                  = 'Registration';
+$lang['user:register_step0']                   = 'Register with one of the following:';
 $lang['user:register_step1']                   = '<strong>Step 1:</strong> Register';
 $lang['user:register_step2']                   = '<strong>Step 2:</strong> Activate';
 
@@ -50,6 +51,8 @@ $lang['indicates_required']                    = 'Indicates required fields';
 $lang['user:send_activation_email']            = 'Send Activation Email';
 $lang['user:do_not_activate']                  = 'Inactive';
 $lang['user:register_title']                   = 'Register';
+$lang['user:register_with_social']             = 'With Social Accounts';
+$lang['user:register_without_social']          = 'Without Social Accounts';
 $lang['user:activate_account_title']           = 'Activate Account';
 $lang['user:activate_label']                   = 'Activate';
 $lang['user:activated_account_title']          = 'Activated Account';
@@ -98,6 +101,9 @@ $lang['user:activate_btn']                     = 'Activate';
 $lang['user:reset_pass_btn']                   = 'Reset Pass';
 $lang['user:login_btn']                        = 'Login';
 $lang['user:settings_btn']                     = 'Save settings';
+$lang['user:register_btn']                     = 'Create New Account';
+$lang['user:register_twitter_btn']             = 'Join Using Twitter';
+$lang['user:register_linkedin_btn']            = 'Join Using LinkedIn';
 
 // -- Errors & Messages ------------------------------------------------------------------------------------
 

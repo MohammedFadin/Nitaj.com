@@ -200,6 +200,30 @@ class Users extends Public_Controller
 	}
 
 	/**
+	 * Method to display initial register page
+	 */
+	public function register_choice(){
+		
+		if ($this->current_user)
+		{
+			$this->session->set_flashdata('notice', lang('user:already_logged_in'));
+			redirect();
+		}
+
+		if ( ! Settings::get('enable_registration'))
+		{
+			$this->template
+				->title(lang('user:register_title'))
+				->build('disabled');
+				return;
+		}
+
+		$this->template
+			->title(lang('user:register_title'))
+			->build('register_choice');		
+	}
+
+	/**
 	 * Method to register a new user
 	 */
 	public function register()
