@@ -16,7 +16,7 @@
                   <ul class="nav pull-right">
                   {{ if user:logged_in}}
                   <li class="dropdown">
-                    <a href="#">{{helper:gravatar email="user:email" size="30"}}&nbsp;{{user:display_name}}</a>
+                    <a href="{{url:site uri='my-profile'}}">{{helper:gravatar email="user:email" size="30"}}&nbsp;{{user:display_name}}</a>
                     <ul class="dropdown-menu">
                     {{if settings:enable_profiles}}
                       <li>
