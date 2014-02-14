@@ -513,10 +513,9 @@ class Users extends Public_Controller
 		// Get info from email
 		if ($this->input->post('email'))
 		{
-			$this->template->activate_user = $this->ion_auth->get_user_by_email($this->input->post('email'));
+			$this->template->activate_user = $this->ion_auth->get_user_by_email($this->input->post('email')) or redirect('users/activate');
 			$id = $this->template->activate_user->id;
 		}
-
 		$code = ($this->input->post('activation_code')) ? $this->input->post('activation_code') : $code;
 
 		// If user has supplied both bits of information

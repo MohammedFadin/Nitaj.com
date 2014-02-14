@@ -32,6 +32,7 @@ $lang['user:first_name_label']                 = 'First Name';
 $lang['user:last_name_label']                  = 'Last Name';
 $lang['user:group_label']                      = 'Group';
 $lang['user:activate_label']                   = 'Activate';
+$lang['user:email_label']                   = 'Email';
 $lang['user:password_label']                   = 'Password';
 $lang['user:password_confirm_label']           = 'Confirm Password';
 $lang['user:name_label']                       = 'Name';
@@ -142,7 +143,9 @@ $lang['user:logged_in']                        = 'You have logged in successfull
 $lang['user:already_logged_in']                = 'You are already logged in. Please logout before trying again.';
 $lang['user:login_incorrect']                  = 'E-mail or password do not match. Please check your login and make sure CAPS LOCK is not on.';
 $lang['user:inactive']                         = 'The account you are trying to access is currently inactive.<br />Check your e-mail for instructions on how to activate your account - <em>it may be in the junk folder</em>.';
-
+$lang['user:login_linkedin_btn']               = 'Log in with LinkedIn';
+$lang['user:login_facebook_btn']               = 'Log in with Facebook';
+$lang['user:login_twitter_btn']               = 'Log in with Twitter';
 // Logout
 $lang['user:logout']							= 'Logout';
 // Logged Out

@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="system/cms/themes/Projectvirals/css/clear_forms/less/styles.css" type="text/css" />           
-    <div class="block">
+<link rel="stylesheet" href="{{ url:base }}/system/cms/themes/Projectvirals/css/clear_forms/less/styles.css" type="text/css" />           
+    <div>
         <div class="container">
         	<div class="row-fluid">
             	<!-- errors valid -->

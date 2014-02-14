@@ -168,6 +168,7 @@ class Social extends Public_Controller
 			
 				// We got the token, let's get some user data
 				$user_hash = $provider->get_user_info($consumer, $token);
+				//var_dump($user_hash);
 				
 			break;
 			
