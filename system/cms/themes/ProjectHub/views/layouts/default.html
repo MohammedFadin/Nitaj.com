@@ -3,7 +3,7 @@
   <head>
     {{ theme:partial name="metadata" }}
   </head>
-  <body>
+  <body class="overflow-hidden">
   <div id="wrapper" class="preload">
   <!-- Navbar
     ================================================== -->
@@ -11,11 +11,9 @@
   {{if user:logged_in}}
     {{ theme:partial name="sidebar" }}
   {{endif}}
-      <div id="main-container">
         <!-- {{ theme:partial name="breadcrumbs"}} -->
         {{ session:messages success="alert alert-success" notice="alert alert-block" error="alert alert-error" }}
         {{ template:body}}
-    </div><!-- /main-container -->
     <br/>
         {{ theme:partial name="footer" }}
 </div><!-- Wrapper-->
@@ -35,42 +33,42 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 <!-- Jquery -->
-  <script src="{{ url:base }}/system/cms/themes/ProjectHub/js/jquery-1.10.2.min.js"></script>
+  <script src="{{ url:base }}system/cms/themes/ProjectHub/js/jquery-1.10.2.min.js"></script>
 
   <!-- Bootstrap -->
-    <script src="{{ url:base }}/system/cms/themes/ProjectHub/bootstrap/js/bootstrap.js"></script>
+    <script src="{{ url:base }}system/cms/themes/ProjectHub/bootstrap/js/bootstrap.js"></script>
    
   <!-- Flot -->
-  <script src='{{ url:base }}/system/cms/themes/ProjectHub/js/jquery.flot.min.js'></script>
+  <script src='{{ url:base }}system/cms/themes/ProjectHub/js/jquery.flot.min.js'></script>
    
   <!-- Morris -->
-  <script src='{{ url:base }}/system/cms/themes/ProjectHub/js/rapheal.min.js'></script> 
-  <script src='{{ url:base }}/system/cms/themes/ProjectHub/js/morris.min.js'></script>  
+  <script src='{{ url:base }}system/cms/themes/ProjectHub/js/rapheal.min.js'></script> 
+  <script src='{{ url:base }}system/cms/themes/ProjectHub/js/morris.min.js'></script>  
   
   <!-- Colorbox -->
-  <script src='{{ url:base }}/system/cms/themes/ProjectHub/js/jquery.colorbox.min.js'></script> 
+  <script src='{{ url:base }}system/cms/themes/ProjectHub/js/jquery.colorbox.min.js'></script> 
 
   <!-- Sparkline -->
-  <script src='{{ url:base }}/system/cms/themes/ProjectHub/js/jquery.sparkline.min.js'></script>
+  <script src='{{ url:base }}system/cms/themes/ProjectHub/js/jquery.sparkline.min.js'></script>
   
   <!-- Pace -->
-  <script src='{{ url:base }}/system/cms/themes/ProjectHub/js/pace.min.js'></script>
+  <script src='{{ url:base }}system/cms/themes/ProjectHub/js/pace.min.js'></script>
   
   <!-- Popup Overlay -->
-  <script src='{{ url:base }}/system/cms/themes/ProjectHub/js/jquery.popupoverlay.min.js'></script>
+  <script src='{{ url:base }}system/cms/themes/ProjectHub/js/jquery.popupoverlay.min.js'></script>
   
   <!-- Slimscroll -->
-  <script src='{{ url:base }}/system/cms/themes/ProjectHub/js/jquery.slimscroll.min.js'></script>
+  <script src='{{ url:base }}system/cms/themes/ProjectHub/js/jquery.slimscroll.min.js'></script>
   
   <!-- Modernizr -->
-  <script src='{{ url:base }}/system/cms/themes/ProjectHub/js/modernizr.min.js'></script>
+  <script src='{{ url:base }}system/cms/themes/ProjectHub/js/modernizr.min.js'></script>
   
   <!-- Cookie -->
-  <script src='{{ url:base }}/system/cms/themes/ProjectHub/js/jquery.cookie.min.js'></script>
+  <script src='{{ url:base }}system/cms/themes/ProjectHub/js/jquery.cookie.min.js'></script>
   
   <!-- Endless -->
-  <script src="{{ url:base }}/system/cms/themes/ProjectHub/js/endless/endless_dashboard.js"></script>
-  <script src="{{ url:base }}/system/cms/themes/ProjectHub/js/endless/endless.js"></script>
+  <script src="{{ url:base }}system/cms/themes/ProjectHub/js/endless/endless_dashboard.js"></script>
+  <script src="{{ url:base }}system/cms/themes/ProjectHub/js/endless/endless.js"></script>
 
   </body>
 </html>
