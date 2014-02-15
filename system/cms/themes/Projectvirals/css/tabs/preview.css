@@ -3,7 +3,7 @@
   -o-transition-duration: 0.4s;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
-  background-color: #f1f1f1;
+  background-color: #ebeef0; /* f1f1f1*/
   background-image: url(n1.png);
 }
 body .container > .row-fluid > .span10 > h4 {

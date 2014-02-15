@@ -157,7 +157,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 /** Header **/
 .cont-header { background: #FFF }
 .cont-outer .blog .block.write .area ul li { background:url(../img/ui/menu-arrow-light.png) left 11px no-repeat }
-.navbar .brand_logo { background: #26a4bd }
+.navbar .brand_logo { background: #444 } /*26a4bd*/
 #menu_bg { color: #FFF}
 #menu_search { color: #FFF }
 

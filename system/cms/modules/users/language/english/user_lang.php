@@ -9,6 +9,7 @@ $lang['profile_updated_on']           			= 'Updated On';
 $lang['user:profile_fields_label']	 		 	= 'Profile Fields';
 
 $lang['user:register_header']                  = 'Registration';
+$lang['user:register_step0']                   = 'Register with one of the following:';
 $lang['user:register_step1']                   = '<strong>Step 1:</strong> Register';
 $lang['user:register_step2']                   = '<strong>Step 2:</strong> Activate';
 
@@ -31,6 +32,7 @@ $lang['user:first_name_label']                 = 'First Name';
 $lang['user:last_name_label']                  = 'Last Name';
 $lang['user:group_label']                      = 'Group';
 $lang['user:activate_label']                   = 'Activate';
+$lang['user:email_label']                   = 'Email';
 $lang['user:password_label']                   = 'Password';
 $lang['user:password_confirm_label']           = 'Confirm Password';
 $lang['user:name_label']                       = 'Name';
@@ -50,7 +52,10 @@ $lang['indicates_required']                    = 'Indicates required fields';
 $lang['user:send_activation_email']            = 'Send Activation Email';
 $lang['user:do_not_activate']                  = 'Inactive';
 $lang['user:register_title']                   = 'Register';
+$lang['user:register_with_social']             = 'With Social Accounts';
+$lang['user:register_without_social']          = 'Without Social Accounts';
 $lang['user:activate_account_title']           = 'Activate Account';
+$lang['user:activate_account_msg']             = 'You\'re one last step ahead to join us! and make sure you check your junk mail!';
 $lang['user:activate_label']                   = 'Activate';
 $lang['user:activated_account_title']          = 'Activated Account';
 $lang['user:reset_password_title']             = 'Reset Password';
@@ -98,6 +103,9 @@ $lang['user:activate_btn']                     = 'Activate';
 $lang['user:reset_pass_btn']                   = 'Reset Pass';
 $lang['user:login_btn']                        = 'Login';
 $lang['user:settings_btn']                     = 'Save settings';
+$lang['user:register_btn']                     = 'Create New Account';
+$lang['user:register_twitter_btn']             = 'Join Using Twitter';
+$lang['user:register_linkedin_btn']            = 'Join Using LinkedIn';
 
 // -- Errors & Messages ------------------------------------------------------------------------------------
 
@@ -136,7 +144,9 @@ $lang['user:logged_in']                        = 'You have logged in successfull
 $lang['user:already_logged_in']                = 'You are already logged in. Please logout before trying again.';
 $lang['user:login_incorrect']                  = 'E-mail or password do not match. Please check your login and make sure CAPS LOCK is not on.';
 $lang['user:inactive']                         = 'The account you are trying to access is currently inactive.<br />Check your e-mail for instructions on how to activate your account - <em>it may be in the junk folder</em>.';
-
+$lang['user:login_linkedin_btn']               = 'Log in with LinkedIn';
+$lang['user:login_facebook_btn']               = 'Log in with Facebook';
+$lang['user:login_twitter_btn']               = 'Log in with Twitter';
 // Logout
 $lang['user:logout']							= 'Logout';
 // Logged Out

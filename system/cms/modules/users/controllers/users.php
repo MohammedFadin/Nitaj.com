@@ -200,6 +200,30 @@ class Users extends Public_Controller
 	}
 
 	/**
+	 * Method to display initial register page
+	 */
+	public function register_choice(){
+		
+		if ($this->current_user)
+		{
+			$this->session->set_flashdata('notice', lang('user:already_logged_in'));
+			redirect();
+		}
+
+		if ( ! Settings::get('enable_registration'))
+		{
+			$this->template
+				->title(lang('user:register_title'))
+				->build('disabled');
+				return;
+		}
+
+		$this->template
+			->title(lang('user:register_title'))
+			->build('register_choice');		
+	}
+
+	/**
 	 * Method to register a new user
 	 */
 	public function register()
@@ -489,10 +513,9 @@ class Users extends Public_Controller
 		// Get info from email
 		if ($this->input->post('email'))
 		{
-			$this->template->activate_user = $this->ion_auth->get_user_by_email($this->input->post('email'));
+			$this->template->activate_user = $this->ion_auth->get_user_by_email($this->input->post('email')) or redirect('users/activate');
 			$id = $this->template->activate_user->id;
 		}
-
 		$code = ($this->input->post('activation_code')) ? $this->input->post('activation_code') : $code;
 
 		// If user has supplied both bits of information
