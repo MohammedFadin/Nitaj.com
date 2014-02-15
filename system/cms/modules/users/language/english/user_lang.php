@@ -55,6 +55,7 @@ $lang['user:register_title']                   = 'Register';
 $lang['user:register_with_social']             = 'With Social Accounts';
 $lang['user:register_without_social']          = 'Without Social Accounts';
 $lang['user:activate_account_title']           = 'Activate Account';
+$lang['user:activate_account_msg']             = 'You\'re one last step ahead to join us! and make sure you check your junk mail!';
 $lang['user:activate_label']                   = 'Activate';
 $lang['user:activated_account_title']          = 'Activated Account';
 $lang['user:reset_password_title']             = 'Reset Password';
