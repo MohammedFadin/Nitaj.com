@@ -12,7 +12,7 @@
                 </div><!-- /size-toggle --> 
                 <div class="user-block clearfix">
                     <div style="width:50px;margin:0 auto;">
-                        {{helper:gravatar email="user:email" size="40"}}<br/>
+                        {{helper:gravatar email="user:email" size="40px"}}<br/>
                     </div>
                     <div class="detail">
                         <strong>{{user:display_name}}</strong><span class="badge badge-danger m-left-xs bounceIn animation-delay4">4</span>
@@ -36,7 +36,8 @@
                     </ul>
                     
                     <div class="alert alert-info">
-                        Welcome to Endless Admin. Do not forget to check all my pages. 
+                        Welcome {{user:display_name}} to {{settings:site_name}}, you can always create your project or sponsor one!
+
                     </div>
                 </div><!-- /main-menu -->
             </div><!-- /sidebar-inner -->

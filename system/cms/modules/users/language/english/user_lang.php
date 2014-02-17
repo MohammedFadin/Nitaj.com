@@ -186,7 +186,9 @@ $lang['user:profile_fields_label']	  = 'Profile Fields';
 
 $lang['profile_not_set_up']           = 'This user does not have a profile set up.';
 
+// Profile Tabs
 $lang['profile_edit']                 = 'Edit your profile';
+$lang['profile_overview']             = 'Overview';
 
 $lang['profile_personal_section']     = 'Personal';
 
