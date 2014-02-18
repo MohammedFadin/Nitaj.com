@@ -354,6 +354,7 @@ class Admin extends Admin_Controller
 			foreach ($assignments as $assign)
 			{
 				$profile_data[$assign->field_slug] = $this->input->post($assign->field_slug);
+				
 			}
 
 			// Some stream fields need $_POST as well.

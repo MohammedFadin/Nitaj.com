@@ -190,7 +190,7 @@ $lang['profile_not_set_up']           = 'This user does not have a profile set u
 $lang['profile_edit']                 = 'Edit your profile';
 $lang['profile_overview']             = 'Overview';
 
-$lang['profile_personal_section']     = 'Personal';
+$lang['profile_personal_section']     = 'Personal Details';
 
 $lang['profile_display_name']         = 'Display Name';
 $lang['profile_dob']                  = 'Date of Birth';
@@ -222,4 +222,18 @@ $lang['profile_edit_error']           = 'An error occurred.';
 // -- Buttons ------------------------------------------------------------------------------------------------
 
 $lang['profile_save_btn']             = 'Save profile';
+
+// -- Profile ProjectViral ------------------------------------------------------------------------------------------------
+$lang['profile_followers']     	  		= 'Followers';
+$lang['profile_follow']     	  		= 'Follow';
+$lang['profile_skills']     	  		= 'My Skills';
+$lang['profile_mini_resume']     	  		= 'Mini Resume';
+$lang['profile_work_education']     	= 'Work & Education';
+$lang['profile_myprojects']     			= 'My Projects';
+$lang['profile_total_supporters']     	= 'Supporters';
+$lang['profile_myproject_stats']     	= 'Project';
+$lang['profile_investors']     			= 'Investors';
+$lang['profile_achievements']     		= 'Achievements';
+
+
 /* End of file user_lang.php */
