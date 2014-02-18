@@ -189,10 +189,10 @@
 														<i class="fa fa-clock-o"></i> 2014
 													</small>
 												</li> 
-											</ul><!-- /list-group -->
-										</div>
 										{{/work_and_education}}
-											{{ /user:profile }}											
+											{{ /user:profile }}														
+											</ul><!-- /list-group -->
+										</div>									
 									</div><!-- /panel work & education-->								
 									<div class="col-md-6">
 									</div><!-- /.col -->

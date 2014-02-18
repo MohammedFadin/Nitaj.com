@@ -36,7 +36,7 @@ class Field_list
 		$output = unserialize($data['value']);
 		if (is_null($data['value']) or strlen($output[0]) == 0)
 		{
-			return '<ul class="list_field" id="'.$data['form_slug'].'"><li><textarea name="'.$data['form_slug'].'[0]" class="item_input" placeholder="List item content..."></textarea><div class="btn gray add">+</div><div class="btn gray remove">-</div></li></ul>';
+			return '<ul class="list_field" id="'.$data['form_slug'].'"><li><textarea name="'.$data['form_slug'].'[0]" class="item_input" placeholder="List item content..."></textarea><div class="btn gray add" id="add_btn">+</div><div class="btn gray remove">-</div></li></ul>';
 		}
 		else {
 			$str = '<ul class="list_field" id="'.$data['form_slug'].'">';
@@ -44,17 +44,18 @@ class Field_list
 			{
 				if ( ! empty($value))
 				{
-					$str .= '<li><textarea name="'.$data['form_slug'].'['.$key.']" class="item_input" placeholder="List item content...">'.$value.'</textarea><div class="btn gray add">+</div><div class="btn gray remove">-</div></li>';
+					$str .= '<li><textarea name="'.$data['form_slug'].'['.$key.']" class="item_input" placeholder="List item content...">'.$value.'</textarea><div class="btn gray add" id="add_btn">+</div><div class="btn gray remove" id="remove_btn">-</div></li>';
 				}
 			}
 			return $str.'</ul>';
 		}
 	}
 
-	public function event($field)
+	public function event()
 	{
-		$this->CI->type->add_js('list', 'list.js');
+		$this->CI->type->add_js('list', 'list.js');		
 		$this->CI->type->add_css('list', 'list.css');
+
 	}
 
 	public function pre_save($input)
