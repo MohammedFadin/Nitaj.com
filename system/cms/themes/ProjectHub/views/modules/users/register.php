@@ -1,5 +1,6 @@
-<section id="register">
-    <div class="row-fluid">
+<div id="main-container" style="margin:auto 0;">
+<div class="row-fluid">
+                <!-- errors valid -->
         <?php if (!empty($error_string)): ?>
         <!-- Woops... -->
         <div class="row-fluid">
@@ -10,55 +11,64 @@
               </div>
             </div>
         </div>
-        <?php endif; ?>
-        <div class="row-fluid">
-        <?php echo form_open('register', array('id' => 'register', 'class' => 'crud_form')); ?>
-            <div class="span10 offset1 form-horizontal well">
-                <fieldset>
-                    <legend><?php echo lang('user:register_header') ?></legend>
-                    <ul class="nav nav-pills">
-                        <li class="active"><a href="#"><?php echo lang('user:register_step1') ?></a></li>
-                        <li><a href="">-&gt;</a></li>
-                        <li><a href="#"><?php echo lang('user:register_step2') ?></a></li>
-                    </ul>
-                    <?php if ( ! Settings::get('auto_username')): ?>
-                    <div class="control-group">
-                        <label class="control-label" for="username"><?php echo lang('user_username') ?></label>
-                        <div class="controls">
-                            <input type="text" name="username" maxlength="100" value="<?php echo $_user->username; ?>" />
-                        </div>
-                    </div>
-                    <?php endif; ?>
-                    <div class="control-group">
-                        <label class="control-label" for="email"><?php echo lang('user:email_label') ?></label>
-                        <div class="controls">
-                           <input type="text" name="email" maxlength="100" value="<?php echo $_user->email; ?>" />
-                            <?php echo form_input('d0ntf1llth1s1n', ' ', 'class="default-form" style="display:none"'); ?>
-                        </div>
-                    </div>          
-                    <div class="control-group">
-                        <label class="control-label" for="password"><?php echo lang('user:password_label') ?></label>
-                        <div class="controls">
-                          <input type="password" name="password" maxlength="100" />
-                        </div>
-                    </div>
-                    <?php foreach($profile_fields as $field):
-                        if ($field['required'] and $field['field_slug'] != 'display_name'): ?>
-                            <div class="control-group">
-                                <label class="control-label" for="<?php echo $field['field_slug']; ?>"><?php echo (lang($field['field_name'])) ? lang($field['field_name']) : $field['field_name'];  ?></label>
-                                <div class="controls">
-                                  <?php echo $field['input']; ?>
-                                </div>
-                            </div>
-                    <?php endif;
-                        endforeach; ?>
-                    <div class="form-actions">
-                        <?php echo form_submit('btnSubmit', lang('user:register_btn'), 'class="btn btn-primary"') ?>
-                        <button type="reset" class="btn">{{ helper:lang line="cancel_label" }}</button>
-                    </div>
-                </fieldset>
-            </div>
-        <?php echo form_close(); ?>
+        <?php endif; ?>             
+</div>
+    <div class="login-wrapper" style="margin-top: 50px;">
+        <div class="text-center">
+            <h2 class="fadeInUp animation-delay10" style="font-weight:bold">
+                <span class="text-success"></span> <span style="color:#ccc; text-shadow:0 1px #fff">Create your Account in a Seconds..</span>
+            </h2>
         </div>
-    </div>
-</section>
+        <div class="login-widget animation-delay1"> 
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-plus-circle fa-lg"></i> Sign up
+                </div>
+                <div class="panel-body">
+                    <?php echo form_open('register', array('id' => 'register')) ?>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" name="username" class="form-control input-sm bounceIn animation-delay2" maxlength="100" value="<?php echo $_user->username ?>" />
+                        </div><!-- /form-group -->
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control input-sm bounceIn animation-delay3" maxlength="100" value="<?php echo $_user->email ?>" />
+                            <?php echo form_input('d0ntf1llth1s1n', ' ', 'class="default-form" style="display:none"') ?>
+                        </div><!-- /form-group -->
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control input-sm bounceIn animation-delay4" maxlength="100" />
+                        </div><!-- /form-group -->
+    <?php foreach($profile_fields as $field) { if($field['required'] and $field['field_slug'] != 'display_name') { ?>                        
+                        <div class="form-group">
+        <label for="<?php echo $field['field_slug'] ?>"><?php echo (lang($field['field_name'])) ? lang($field['field_name']) : $field['field_name'];  ?></label>
+        <?php echo $field['input'] ?>   
+                        </div><!-- /form-group -->    
+    <?php } } ?>                                                                   
+                        <div class="form-group">
+                            <label class="label-checkbox">
+                                 <input type="checkbox"/>
+                                 <span class="custom-checkbox info bounceIn animation-delay6"></span>
+                                 I accept the agreement.
+                            </label>
+                        </div><!-- /form-group -->
+
+                        <div class="seperator"></div>
+                        <div class="form-group">
+                            <div class="controls">
+                                Already have an account? <a href="login.html" class="primary-font login-link">Sign In</a>
+                            </div>
+                        </div><!-- /form-group -->
+                            
+                        <hr/>
+                        <div class="form-group">
+                            <div class="controls text-right">
+                            <button class="btn btn-success btn-sm bounceIn animation-delay5 pull-right" type="submit"><i class="fa fa-sign-in"></i> Create Account</button>
+                            </div>
+                        </div><!-- /form-group -->
+                    <?php echo form_close() ?>
+                </div>
+            </div><!-- /panel -->
+        </div><!-- /login-widget -->
+    </div><!-- /login-wrapper -->
+</div>

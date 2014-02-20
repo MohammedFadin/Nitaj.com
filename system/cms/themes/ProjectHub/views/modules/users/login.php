@@ -1,53 +1,72 @@
-<link rel="stylesheet" href="{{ url:base }}/system/cms/themes/Projectvirals/css/clear_forms/less/styles.css" type="text/css" />           
-    <div>
-        <div class="container">
-        	<div class="row-fluid">
-            	<!-- errors valid -->
-           	<?php if (validation_errors()):?>
-            	<div class="span12">
-            		<div class="alert alert-error">
-            		    <a class="close">&times;</a>
-            			<?php echo validation_errors();?>
-            		</div>            		
-            	</div>
-            <?php endif;?>        		
-        	</div>
-            <div class="row">
-                <div class="span12">
-					<?php echo form_open('users/login', array('id'=>'login', 'class' => 'crud_form'), array('redirect_to' => $redirect_to)); ?>                
-                    <div class="clear-form two-col">
-                        <div class="form-heading">
-                            <h3 class="header">Sign In</h3>
-                            <hr/>
-                        </div>
-                        <div class="col1">                            
-                            <h4>Use other accounts</h4>
-                            <p>
-                                You can also sign in using your Facebook Account or Twitter Account
-                            </p>
-                            <a href="{{ url:site uri='social/session/linkedin' }}" class="btn btn-large btn-block btn-fb"><?php echo lang('user:login_linkedin_btn');?></a>
-                            <a href="{{ url:site uri='social/session/twitter' }}" class="btn btn-large btn-block btn-twitter"><?php echo lang('user:login_twitter_btn');?></a>
-                        </div>
-                        <div class="col2">
-                            <div class="form-heading"><!-- without social -->
-                                <h4 class="header">Using your account</h4>                                                        
-                            </div>  
-                            <div class="form-body">                              
-                                <div class="pair-group">
-                                    <input type="text" name="email" class="input-block-level" placeholder="Email address">
-                                    <input type="password" name="password" class="input-block-level" placeholder="Password">         
-                                </div>
-                           </div>                                 
-                            <div class="form-footer">     
-                                <button class="btn btn-large btn-blue btn-block" type="submit">Sign In</button> 
-                                <p class="center">
-                                    <?php echo  anchor('users/reset_pass', lang('user:reset_password_link'));?>
-                                </p>
-                            </div>    
-                        </div>          
-                    </div>
-                    <?php echo form_close();?>;
-                </div>
-            </div>
+<div id="main-container" style="margin:auto 0;">
+    <div class="row-fluid" >
+        <!-- errors valid -->
+    <?php if (validation_errors()):?>
+        <div class="span12">
+            <div class="alert alert-error">
+                <a class="close">&times;</a>
+                <?php echo validation_errors();?>
+            </div>                  
         </div>
+    <?php endif;?>              
     </div>
+    <div class="login-wrapper" style="margin-top: 50px;">
+        <div class="text-center">
+            <h2 class="fadeInUp animation-delay8" style="font-weight:bold">
+                <span class="text-success"></span> <span style="color:#ccc; text-shadow:0 1px #fff">Login in a Seconds..</span>
+            </h2>
+        </div>
+        <div class="login-widget animation-delay1"> 
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <div class="pull-left">
+                        <i class="fa fa-lock fa-lg"></i> Login
+                    </div>
+
+                    <div class="pull-right">
+                        <span style="font-size:11px;">Don't have any account?</span>
+                        <a class="btn btn-default btn-xs login-link" href="{{url:site uri='users/register'}}" style="margin-top:-2px;"><i class="fa fa-plus-circle"></i> Sign up</a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <?php echo form_open('users/login', array('id'=>'login', 'class' => 'crud_form'), array('redirect_to' => $redirect_to)); ?>                                    
+
+                        <div class="form-group">
+                            <label>Username or Email</label>
+                            <input type="text" name="email" placeholder="Email" class="form-control input-sm bounceIn animation-delay2" >
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" placeholder="Password" class="form-control input-sm bounceIn animation-delay4">
+                        </div>
+                        <div class="form-group">
+                            <label class="label-checkbox inline">
+                                <?php echo form_checkbox('remember', '1', false) ?>
+                                <span class="custom-checkbox info bounceIn animation-delay4"></span>
+                            </label>
+                            Remember me     
+                        </div>
+        
+                        <div class="seperator"></div>
+                        <div class="form-group">
+                        <?php echo  anchor('users/reset_pass', lang('user:reset_password_link'));?>
+                        </div>
+
+                        <hr/>
+                        <a href="#" class="btn btn-primary pull-left" style="display:inline">
+                            Login with Twitter     
+                        </a>
+                        <a href="#" class="btn btn-info pull-right">
+                            Login with LinkedIn     
+                        </a>                        
+                        <hr/>
+                        <br/>
+                        <br/>
+                        <button class="btn btn-success btn-sm bounceIn animation-delay5 pull-right" type="submit"><i class="fa fa-sign-in"></i> Sign In</button>
+                <?php echo form_close();?>                  
+                </div>
+            </div><!-- /panel -->
+        </div><!-- /login-widget -->
+    </div><!-- /login-wrapper -->
+            <?php echo form_close();?>                   
+            </div>

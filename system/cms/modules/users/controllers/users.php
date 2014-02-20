@@ -243,6 +243,7 @@ class Users extends Public_Controller
 			return;
 		}
 
+
 		// Validation rules
 		$validation = array(
 			array(

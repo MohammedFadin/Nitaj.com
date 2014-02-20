@@ -1,24 +1,21 @@
+
+    
+    <div id="main-container" style="margin-top: 100px;">
 <link rel="stylesheet" href="{{ url:base }}/system/cms/themes/Projectvirals/css/clear_forms/less/styles.css" type="text/css" />           
     <div>
-        <div class="container">
-        	<div class="row-fluid">
-            	<!-- errors valid -->
-				<?php if(!empty($error_string)): ?>
-            		<div class="alert alert-error text-center">
-            		    <a class="close">&times;</a>
-            			<?php echo $error_string;?>
-            		</div> 
-				<?php endif;?>       		
-        	</div>
+        <div class="container" style="margin:auto 0;">
+            <div class="row-fluid">
+            
+            </div>
             <div class="row">
                 <div class="span12">
-					<?php echo form_open('users/activate', 'id="activate-user"'); ?>
+                    <?php echo form_open('users/activate', 'id="activate-user"'); ?>
                     <div class="clear-form two-col">
                         <div class="form-heading">
                             <h3 class="header"><?php echo lang('user:activate_account_title');?></h3>
                             <hr/>
                             <p>
-                            	<?php echo lang('user:activate_account_msg');?>
+                                <?php echo lang('user:activate_account_msg');?>
                             </p>
                         </div>
                         <div class="">
@@ -37,4 +34,5 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>

@@ -33,6 +33,7 @@ class Field_text
 		$options['name'] 	= $data['form_slug'];
 		$options['id']		= $data['form_slug'];
 		$options['value']	= $data['value'];
+		$options['class']	= 'form-control input-sm bounceIn animation-delay2';
 		
 		if (isset($data['max_length']) and is_numeric($data['max_length']))
 		{
