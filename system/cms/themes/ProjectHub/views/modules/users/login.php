@@ -25,7 +25,7 @@
 
                     <div class="pull-right">
                         <span style="font-size:11px;">Don't have any account?</span>
-                        <a class="btn btn-default btn-xs login-link" href="{{url:site uri='users/register'}}" style="margin-top:-2px;"><i class="fa fa-plus-circle"></i> Sign up</a>
+                        <a class="btn btn-default btn-xs login-link" href="{{url:site uri='users/register_choice'}}" style="margin-top:-2px;"><i class="fa fa-plus-circle"></i> Sign up</a>
                     </div>
                 </div>
                 <div class="panel-body">

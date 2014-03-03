@@ -36,6 +36,7 @@ class Field_country
 		if ( ! $data['value'] and ! $entry_id)
 		{
 			$value = (isset($field->field_data['default_country'])) ? $field->field_data['default_country'] : null;
+			echo "asdfasdfsafsdf";
 		}
 		else
 		{

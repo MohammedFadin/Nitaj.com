@@ -1,5 +1,6 @@
+
 <div id="main-container" style="margin:auto 0;">
-<div class="row-fluid">
+    <div class="row-fluid">
                 <!-- errors valid -->
         <?php if (!empty($error_string)): ?>
         <!-- Woops... -->
@@ -12,7 +13,7 @@
             </div>
         </div>
         <?php endif; ?>             
-</div>
+    </div>
     <div class="login-wrapper" style="margin-top: 50px;">
         <div class="text-center">
             <h2 class="fadeInUp animation-delay10" style="font-weight:bold">
@@ -22,7 +23,7 @@
         <div class="login-widget animation-delay1"> 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-plus-circle fa-lg"></i> Sign up
+                    <i class="fa fa-plus-circle fa-lg">&nbsp;Signup</i> 
                 </div>
                 <div class="panel-body">
                     <?php echo form_open('register', array('id' => 'register')) ?>
@@ -56,7 +57,7 @@
                         <div class="seperator"></div>
                         <div class="form-group">
                             <div class="controls">
-                                Already have an account? <a href="login.html" class="primary-font login-link">Sign In</a>
+                                Already have an account? <a href="{{url:site uri='users/login'}}" class="primary-font login-link">Sign In</a>
                             </div>
                         </div><!-- /form-group -->
                             
