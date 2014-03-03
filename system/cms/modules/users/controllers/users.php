@@ -689,6 +689,10 @@ class Users extends Public_Controller
 		// Get the profile data
 		$profile_row = $this->db->limit(1)
 			->where('user_id', $user->id)->get('profiles')->row();
+		 
+		 //We are using this
+		 $profile_data_row = $this->db->limit(1)
+			->where('user_id', $user->id)->get('profiles')->row_array();			
 
 		// If we have API's enabled, load stuff
 		if (Settings::get('api_enabled') and Settings::get('api_user_keys'))
@@ -778,7 +782,7 @@ class Users extends Public_Controller
 			if ($this->ion_auth->update_user($user->id, $user_data, $profile_data) !== false)
 			{
 				Events::trigger('post_user_update');
-				$this->session->set_flashdata('success', $this->ion_auth->messages());
+				//$this->session->set_flashdata('success', $this->ion_auth->messages());
 			}
 			else
 			{
@@ -832,6 +836,7 @@ class Users extends Public_Controller
 			'display_name' => $profile_row->display_name,
 			'profile_fields' => $this->streams->fields->get_stream_fields('profiles', 'users', $profile_data),
 			'api_key' => isset($api_key) ? $api_key : null,
+			'profile_data' => $profile_data_row,
 		));
 	}
 

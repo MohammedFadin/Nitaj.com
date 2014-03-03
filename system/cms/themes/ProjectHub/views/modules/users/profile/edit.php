@@ -1,10 +1,5 @@
 		<div id="main-container">
 			<div id="breadcrumb">
-				<ul class="breadcrumb">
-					 <li><i class="fa fa-home"></i><a href="<?php site_url();?>"> Home</a></li>
-					 <li>Page</li>	 
-					 <li class="active">Profile</li>	 
-				</ul>
 			</div><!--breadcrumb-->
 			<ul class="tab-bar grey-tab">
 				<li class="active">
@@ -51,9 +46,9 @@
 								<div class="seperator"></div>
 								<a class="btn btn-success btn-xs m-bottom-sm">{{helper:lang line="profile_follow"}}</a>
 								<div class="seperator"></div>
-								<a href="#" class="social-connect tooltip-test facebook-hover" data-toggle="tooltip" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="social-connect tooltip-test twitter-hover" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
-								<a href="#" class="social-connect tooltip-test google-plus-hover" data-toggle="tooltip" data-original-title="Google Plus"><i class="fa fa-google-plus"></i></a>
+								<a href="http://facebook.com/<?php echo $profile_data['facebook'];?>" class="social-connect tooltip-test facebook-hover" data-toggle="tooltip" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
+								<a href="http://twitter.com/<?php echo $profile_data['twitter'];?>" class="social-connect tooltip-test twitter-hover" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
+								<a href="http://google.com/plus/<?php echo $profile_data['google_plus'];?>" class="social-connect tooltip-test google-plus-hover" data-toggle="tooltip" data-original-title="Google Plus"><i class="fa fa-google-plus"></i></a>
 								<div class="seperator"></div>
 								<div class="seperator"></div>
 							</div><!-- /.col -->
@@ -125,15 +120,11 @@
 											<div class="panel-heading">
 												<i class="fa fa-gavel"></i> {{helper:lang line="profile_personal_section"}}
 											</div>
-											{{ user:profile_fields user_id= _user:id }}
-												{{ if slug !='last_login' and slug !='display_name' and slug!='lang' and slug !='updated_on' and slug !='mini_resume' and slug !='ip_address' and slug !='id'  and slug !='achievements' and slug !='company' and slug !='username' and slug !='email' and slug !='work_and_education'}}						
 											<ul class="list-group"> 
 												<li class="list-group-item"> 
-													<p><strong>{{ name }}: </strong>{{value}}</p> 
+													<p><strong> </strong></p> 
 												</li> 
-											</ul><!-- /list-group -->
-												{{ endif }}
-											{{ /user:profile_fields }}												
+											</ul><!-- /list-group -->																						
 										</div><!-- /panel Personal Details-->
 									</div><!-- /.col -->
 									<div class="col-md-6">
@@ -202,7 +193,7 @@
 								<div class="row">
 									<div class="panel panel-info pull-right">
 										<div class="panel-body">
-											Last Update on 12 Oct,2013
+											Created On <?php echo $profile_data['created'];?>
 										</div>
 									</div><!-- /panel -->
 								</div><!-- /.row -->
@@ -227,6 +218,20 @@
 										</div>
 										<div class="panel-body">
 											<div class="form-group">
+												<label class="control-label col-md-2"><i class="fa fa-twitter-square fa-2x"></i></label>
+												<div class="col-md-2">
+													<input type="text" name="twitter" value="<?php echo $profile_data['twitter'];?>" class="form-control input-sm">
+												</div><!-- /.col -->
+												<label class="control-label col-md-2"><i class="fa fa-facebook-square fa-2x"></i></label>
+												<div class="col-md-2">
+													<input type="text" name="facebook" value="<?php echo $profile_data['facebook'];?>" class="form-control input-sm">
+												</div><!-- /.col -->
+												<label class="control-label col-md-2"><i class="fa fa-google-plus fa-2x"></i></label>
+												<div class="col-md-2">
+													<input type="text" name="google_plus" value="<?php echo $profile_data['google_plus'];?>" class="form-control input-sm">
+												</div><!-- /.col -->																								
+											</div>
+											<div class="form-group">
 												<label class="control-label col-md-2"><?php echo lang('profile_display_name'); ?></label>												
 												<div class="col-md-10">
 													<input type="text" name="display_name" class="form-control input-sm" placeholder="Username" value="<?php echo $display_name;?>">
@@ -247,7 +252,7 @@
 											<div class="form-group">
 												<label class="control-label col-md-2"><?php echo lang('user:password_label') ?></label>
 												<div class="col-md-10">
-													<input type="password" name="password" class="form-control input-sm" value="Password">
+													<input type="password" name="password" class="form-control input-sm" value="">
 												</div><!-- /.col -->
 											</div>	                              			
 											<div class="form-group">
@@ -256,27 +261,29 @@
 													<input type="text" name="email" class="form-control input-sm" value="<?php echo $_user->email;?>">
 												</div><!-- /.col -->
 											</div><!-- /form-group -->
+											<?php var_dump($profile_data['lang']);?>
 											<?php foreach ($profile_fields as $field):?>
 												<?php if ($field['input']):?>
-												<?php if ($field['field_slug'] === 'lang' || $field['field_slug'] == 'dob'):?>
+												<?php if ($field['field_slug'] == 'work_and_education'):?>
 											<div class="form-group">
 												<label class="control-label col-md-2"><?php echo (lang($field['field_name'])) ? lang($field['field_name']) : $field['field_name'];  ?></label>
+												<?php echo $field['input'];?>
 											</div>
 										<?php endif;?>
 										<?php endif;?>
 										<?php endforeach;?>
 											<div class="form-group">
-												<label class="control-label col-md-2">Website Lang</label>
+												<label class="control-label col-md-2">Website Language</label>
 												<div class="col-md-10">
 													<label class="label-radio inline">
-														<input type="radio" name="inline-radio" checked>
+														<input type="radio" name="lang" value="en" <?php echo $profile_data['lang']=='en'? 'checked':'';?>>
 														<span class="custom-radio"></span>
-														Male
+														English
 													</label>
 													<label class="label-radio inline">
-														<input type="radio" name="inline-radio">
+														<input type="radio" name="lang" value="ar" <?php echo $profile_data['lang']=='ar'? 'checked':'';?>>
 														<span class="custom-radio"></span>
-														Female
+														Arabic
 													</label>
 												</div><!-- /.col -->
 											</div>
@@ -284,34 +291,34 @@
 												<label class="control-label col-md-2">Gender</label>
 												<div class="col-md-10">
 													<label class="label-radio inline">
-														<input type="radio" name="inline-radio" checked>
+														<input type="radio" name="gender" value="m" <?php echo $profile_data['gender']=='m'? 'checked':'';?>>
 														<span class="custom-radio"></span>
 														Male
 													</label>
 													<label class="label-radio inline">
-														<input type="radio" name="inline-radio">
+														<input type="radio" name="gender" value="f" <?php echo $profile_data['gender']=='f'? 'checked':'';?>>
 														<span class="custom-radio"></span>
 														Female
 													</label>
 												</div><!-- /.col -->
 											</div><!-- /form-group -->
 											<div class="form-group">
-												<label class="control-label col-md-2">Address</label>
+												<label class="control-label col-md-2">Mini Resume</label>
 												<div class="col-md-10">
-													<textarea class="form-control" rows="3"></textarea>
+													<textarea name="mini_resume" class="form-control" rows="3"><?php echo $profile_data['mini_resume'];?></textarea>
 												</div><!-- /.col -->
 											</div><!-- /form-group -->
 											<div class="form-group">
-												<label class="control-label col-md-2">Phone</label>
+												<label class="control-label col-md-2">Achievement</label>
 												<div class="col-md-10">
-													<input type="text" class="form-control input-sm">
+													<textarea name="achievements" class="form-control" rows="3"><?php echo $profile_data['achievements'];?></textarea>
 												</div><!-- /.col -->
-											</div><!-- /form-group -->
+											</div>
+											<!-- /form-group -->
 										</div>
 										<div class="panel-footer">
                     						<div class="text-right">
 												<button name="btnSubmit" class="btn btn-sm btn-success">Update</button>			
-												<button class="btn btn-sm btn-success" type="reset">Reset</button>
 											</div>
 								</div><!-- /panel -->
 							
@@ -409,6 +416,7 @@
 									</div>
 								</div><!-- panel -->
 							</div><!-- /tab2 -->
+						</div>
         					<?php echo form_close(); ?>							
 							<div class="tab-pane fade" id="message">
 								<div class="panel panel-default inbox-panel">
