@@ -48,3 +48,131 @@ ERROR - 2014-03-04 00:43:38 --> Severity: Warning  --> Cannot modify header info
 ERROR - 2014-03-04 00:43:38 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/iMohammad/Github/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/iMohammad/Github/senior-project/system/codeigniter/core/Output.php 419
 ERROR - 2014-03-04 00:43:38 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/iMohammad/Github/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/iMohammad/Github/senior-project/system/codeigniter/core/Output.php 419
 ERROR - 2014-03-04 00:43:38 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/iMohammad/Github/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/iMohammad/Github/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 17:27:18 --> Severity: Notice  --> Undefined index: facebook /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 49
+ERROR - 2014-03-04 17:27:18 --> Severity: Notice  --> Undefined index: twitter /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 50
+ERROR - 2014-03-04 17:27:18 --> Severity: Notice  --> Undefined index: google_plus /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 51
+ERROR - 2014-03-04 17:27:18 --> Severity: Notice  --> Undefined index: twitter /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 223
+ERROR - 2014-03-04 17:27:18 --> Severity: Notice  --> Undefined index: facebook /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 227
+ERROR - 2014-03-04 17:27:18 --> Severity: Notice  --> Undefined index: google_plus /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 231
+ERROR - 2014-03-04 17:27:31 --> Severity: Notice  --> Undefined index: facebook /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 49
+ERROR - 2014-03-04 17:27:31 --> Severity: Notice  --> Undefined index: twitter /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 50
+ERROR - 2014-03-04 17:27:31 --> Severity: Notice  --> Undefined index: google_plus /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 51
+ERROR - 2014-03-04 17:27:31 --> Severity: Notice  --> Undefined index: twitter /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 223
+ERROR - 2014-03-04 17:27:31 --> Severity: Notice  --> Undefined index: facebook /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 227
+ERROR - 2014-03-04 17:27:31 --> Severity: Notice  --> Undefined index: google_plus /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 231
+ERROR - 2014-03-04 17:27:50 --> Severity: Notice  --> Undefined index: facebook /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 49
+ERROR - 2014-03-04 17:27:50 --> Severity: Notice  --> Undefined index: twitter /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 50
+ERROR - 2014-03-04 17:27:50 --> Severity: Notice  --> Undefined index: google_plus /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 51
+ERROR - 2014-03-04 17:27:50 --> Severity: Notice  --> Undefined index: twitter /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 223
+ERROR - 2014-03-04 17:27:50 --> Severity: Notice  --> Undefined index: facebook /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 227
+ERROR - 2014-03-04 17:27:50 --> Severity: Notice  --> Undefined index: google_plus /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/edit.php 231
+ERROR - 2014-03-04 17:54:31 --> Severity: Notice  --> Undefined variable: profile_fields /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 7
+ERROR - 2014-03-04 17:59:06 --> Severity: Notice  --> Undefined variable: user /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 7
+ERROR - 2014-03-04 18:01:15 --> Severity: Notice  --> Undefined variable: profile_data /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/modules/users/controllers/users.php 94
+ERROR - 2014-03-04 18:01:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:01:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:01:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:01:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:01:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:01:25 --> Severity: Notice  --> Undefined variable: profile_data /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/modules/users/controllers/users.php 94
+ERROR - 2014-03-04 18:01:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:01:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:01:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:01:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:01:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:06:25 --> Severity: 4096  --> Object of class Users could not be converted to string /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/database/DB_query_builder.php 484
+ERROR - 2014-03-04 18:06:25 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 4 - Invalid query: SELECT *
+FROM `default_profiles`
+WHERE `user_id` =  
+ LIMIT 1
+ERROR - 2014-03-04 18:06:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Common.php 497
+ERROR - 2014-03-04 18:06:44 --> Severity: 4096  --> Object of class stdClass could not be converted to string /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/database/DB_query_builder.php 484
+ERROR - 2014-03-04 18:06:44 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 4 - Invalid query: SELECT *
+FROM `default_profiles`
+WHERE `user_id` =  
+ LIMIT 1
+ERROR - 2014-03-04 18:06:44 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Common.php 497
+ERROR - 2014-03-04 18:09:13 --> Severity: Notice  --> Undefined variable: user /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/modules/users/controllers/users.php 91
+ERROR - 2014-03-04 18:09:13 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Common.php 497
+ERROR - 2014-03-04 18:09:13 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Common.php 497
+ERROR - 2014-03-04 18:09:13 --> Page Missing: my-profile
+ERROR - 2014-03-04 18:10:25 --> Severity: Notice  --> Undefined variable: user /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/modules/users/controllers/users.php 91
+ERROR - 2014-03-04 18:10:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Common.php 497
+ERROR - 2014-03-04 18:10:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Common.php 497
+ERROR - 2014-03-04 18:10:25 --> Page Missing: my-profile
+ERROR - 2014-03-04 18:10:43 --> Severity: Notice  --> Undefined variable: user /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/modules/users/controllers/users.php 91
+ERROR - 2014-03-04 18:10:43 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Common.php 497
+ERROR - 2014-03-04 18:10:43 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Common.php 497
+ERROR - 2014-03-04 18:10:43 --> Page Missing: my-profile
+ERROR - 2014-03-04 18:12:12 --> Page Missing: users/sobialab
+ERROR - 2014-03-04 18:12:16 --> Page Missing: user
+ERROR - 2014-03-04 18:12:31 --> Page Missing: user
+ERROR - 2014-03-04 18:14:32 --> Page Missing: user/admin
+ERROR - 2014-03-04 18:14:33 --> Page Missing: user/admin
+ERROR - 2014-03-04 18:16:41 --> Page Missing: user
+ERROR - 2014-03-04 18:17:00 --> Page Missing: user
+ERROR - 2014-03-04 18:17:06 --> Page Missing: user
+ERROR - 2014-03-04 18:17:17 --> Page Missing: user
+ERROR - 2014-03-04 18:17:43 --> Page Missing: user
+ERROR - 2014-03-04 18:21:10 --> Page Missing: user
+ERROR - 2014-03-04 18:21:16 --> Severity: Notice  --> Trying to get property of non-object /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/modules/users/controllers/users.php 88
+ERROR - 2014-03-04 18:21:16 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:21:16 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:21:16 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:21:16 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:21:16 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Output.php 419
+ERROR - 2014-03-04 18:21:16 --> Page Missing: user
+ERROR - 2014-03-04 18:21:29 --> Severity: Notice  --> Trying to get property of non-object /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/modules/users/controllers/users.php 88
+ERROR - 2014-03-04 18:21:29 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Common.php 497
+ERROR - 2014-03-04 18:21:29 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Exceptions.php:183) /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/codeigniter/core/Common.php 497
+ERROR - 2014-03-04 18:21:29 --> Page Missing: user/sobialb
+ERROR - 2014-03-04 18:21:33 --> Page Missing: user
+ERROR - 2014-03-04 18:26:53 --> Severity: Notice  --> Undefined index: achievementsE /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 121
+ERROR - 2014-03-04 18:31:13 --> Severity: Notice  --> Undefined variable: user_§ /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 7
+ERROR - 2014-03-04 18:33:08 --> Severity: Notice  --> Undefined variable: user_ /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 7
+ERROR - 2014-03-04 18:33:17 --> Severity: Notice  --> Undefined variable: user /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 7
+ERROR - 2014-03-04 18:54:01 --> Page Missing: user
+ERROR - 2014-03-04 18:55:21 --> Page Missing: user
+ERROR - 2014-03-04 18:56:57 --> Severity: Notice  --> Undefined index: work_education /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 185
+ERROR - 2014-03-04 18:56:57 --> Page Missing: user
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:09 --> Severity: Notice  --> Array to string conversion /Users/mohammedfadin/Dropbox/GitHub/senior-project/system/cms/themes/ProjectHub/views/modules/users/profile/view.php 188
+ERROR - 2014-03-04 18:57:10 --> Page Missing: user
+ERROR - 2014-03-04 18:57:33 --> Page Missing: user
+ERROR - 2014-03-04 18:57:45 --> Page Missing: user

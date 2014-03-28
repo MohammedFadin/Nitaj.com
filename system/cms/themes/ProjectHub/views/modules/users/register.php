@@ -27,6 +27,7 @@
                 </div>
                 <div class="panel-body">
                     <?php echo form_open('register', array('id' => 'register')) ?>
+                    <?php var_dump($_user);?>
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" name="username" class="form-control input-sm bounceIn animation-delay2" maxlength="100" value="<?php echo $_user->username ?>" />

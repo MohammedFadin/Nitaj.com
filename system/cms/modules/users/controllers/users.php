@@ -3,8 +3,8 @@
 /**
  * User controller for the users module (frontend)
  *
- * @author		 Phil Sturgeon
- * @author		PyroCMS Dev Team
+ * @author		Mohammed Fadin
+ * @author		Phil Storegoun
  * @package		PyroCMS\Core\Modules\Users\Controllers
  */
 class Users extends Public_Controller
@@ -32,7 +32,7 @@ class Users extends Public_Controller
 	{
 		if (isset($this->current_user->id))
 		{
-			$this->view($this->current_user->id);
+			$this->view($this->current_user->id); //call view for id
 		}
 		else
 		{
@@ -72,7 +72,6 @@ class Users extends Public_Controller
 				$this->current_user or redirect('users/login/users/view/'.$username);
 				break;
 		}
-
 		// Don't make a 2nd db call if the user profile is the same as the logged in user
 		if ($this->current_user && $username === $this->current_user->username)
 		{
@@ -81,7 +80,7 @@ class Users extends Public_Controller
 		// Fine, just grab the user from the DB
 		else
 		{
-			$user = $this->ion_auth->get_user($username);
+			$user = (array)$this->ion_auth->get_user($username);
 		}
 
 		// No user? Show a 404 error
@@ -92,9 +91,6 @@ class Users extends Public_Controller
 		));
 	}
 
-	/**
-	 * Let's login, shall we?
-	 */
 	public function login()
 	{
 		// Check post and session for the redirect place
@@ -480,6 +476,7 @@ class Users extends Public_Controller
 				// Convert the array to an object
 				$user->email = ( ! empty($user_hash['email'])) ? $user_hash['email'] : '';
 				$user->username = $user_hash['nickname'];
+				$user->first_name = $user_hash['first_name'];
 			}
 		}
 
@@ -690,10 +687,6 @@ class Users extends Public_Controller
 		$profile_row = $this->db->limit(1)
 			->where('user_id', $user->id)->get('profiles')->row();
 		 
-		 //We are using this
-		 $profile_data_row = $this->db->limit(1)
-			->where('user_id', $user->id)->get('profiles')->row_array();			
-
 		// If we have API's enabled, load stuff
 		if (Settings::get('api_enabled') and Settings::get('api_user_keys'))
 		{
@@ -779,6 +772,10 @@ class Users extends Public_Controller
 
 			$profile_data = $secure_post;
 
+			// Insert the users skill_exp
+			//var_dump($profile_data);
+			//
+			//$this->db->insert("default_profiles", )
 			if ($this->ion_auth->update_user($user->id, $user_data, $profile_data) !== false)
 			{
 				Events::trigger('post_user_update');
@@ -827,16 +824,16 @@ class Users extends Public_Controller
 
 		$profile_stream_id = $this->streams_m->get_stream_id_from_slug('profiles', 'users');
 		$this->fields->run_field_events($this->streams_m->get_stream_fields($profile_stream_id), array());
-
+		// var_dump($this->streams_m->get_stream_fields($profile_stream_id));
 		// --------------------------------
-
+		//Down cast it to array before sending to view 
+		$user = (array) $user;
 		// Render the view
 		$this->template->build('profile/edit', array(
 			'_user' => $user,
 			'display_name' => $profile_row->display_name,
 			'profile_fields' => $this->streams->fields->get_stream_fields('profiles', 'users', $profile_data),
 			'api_key' => isset($api_key) ? $api_key : null,
-			'profile_data' => $profile_data_row,
 		));
 	}
 

@@ -4,16 +4,15 @@
  * List Field Type
  *
  * @package		Addons\Field Types
- * @author		James Doyle (james2doyle)
- * @license		MIT License
- * @link		http://github.com/james2doyle/pyro-list-field
+ * @author		Mohammed Fadin & James Doyol
+ * @link		http://github.com/james2doyle/pyro-list-field (Origila)
  */
 class Field_list
 {
 	public $field_type_slug    = 'list';
 	public $db_col_type        = 'text';
 	public $version            = '1.2.0';
-	public $author             = array('name'=>'James Doyle', 'url'=>'http://github.com/james2doyle/pyro-list-field');
+	public $author             = array('name'=>'Mohammed S Fadin', 'url'=>'http://github.com/james2doyle/pyro-list-field');
 
 	// --------------------------------------------------------------------------
 
@@ -33,21 +32,21 @@ class Field_list
 	 */
 	public function form_output($data)
 	{
-		$output = unserialize($data['value']);
+		$output = empty($data['value'])? NULL: unserialize($data['value']);
 		if (is_null($data['value']) or strlen($output[0]) == 0)
 		{
-			return '<ul class="list_field" id="'.$data['form_slug'].'"><li><textarea name="'.$data['form_slug'].'[0]" class="item_input" placeholder="List item content..."></textarea><div class="btn gray add">+</div><div class="btn gray remove">-</div></li></ul>';
+			return '<div class="col-md-10 input-group"><input type="text" id="'.$data['form_slug'].'" name="'.$data['form_slug'].'[0]" class="form-control" placeholder="List Your Skills"><span class="input-group-btn"><button class="btn btn-default" type="button">+</button></span></div>';
 		}
 		else {
-			$str = '<ul class="list_field" id="'.$data['form_slug'].'">';
+			$str = '';
 			foreach ($output as $key => $value)
 			{
 				if ( ! empty($value))
 				{
-					$str .= '<li><textarea name="'.$data['form_slug'].'['.$key.']" class="item_input" placeholder="List item content...">'.$value.'</textarea><div class="btn gray add">+</div><div class="btn gray remove">-</div></li>';
+					$str .= '<label class="col-lg-2 control-label">Skill Item '.$key.'</label><div class="col-md-10 input-group"><input type="text" id="'.$data['form_slug'].'" name="'.$data['form_slug'].'['.$key.']" class="form-control" placeholder="List item content..." value="'.$value.'"/><span class="input-group-btn"><button class="btn btn-default add" type="button">+</button></span><span class="input-group-btn"><button class="btn btn-default remove" type="button">-</button></span></div>';
 				}
 			}
-			return $str.'</ul>';
+			return $str.'';
 		}
 	}
 

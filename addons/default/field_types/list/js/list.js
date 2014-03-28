@@ -1,66 +1,21 @@
-(function($){
-  $.fn.extend( {
-    listfield: function( options ) {
-      this.defaults = {};
-      var settings = $.extend( {}, this.defaults, options );
-      function makeTemplate(name) {
-        return '<li><textarea type="text" name="'+name+'" class="item_input"></textarea><div class="btn gray add">+</div><div class="btn gray remove">-</div></li>';
-      }
-      function removeItem() {
-        var $parent = $(this).parent().parent();
-        if ($parent.children('li').length > 1) {
-          // remove the li item
-          $(this).parent().remove();
-        }
-      }
-      function addItem(callback) {
-        var $parent = $(this).parent().parent();
-        var count = $parent.children('li').length;
-        var newname = $parent.attr('id')+'['+count+']';
-        var $previousTextarea = $(this).siblings('textarea');
-        if ($previousTextarea.val() !== '') {
-          var str = makeTemplate(newname);
-          $parent.append(str);
-        } else {
-          alert('No Value');
-          return false;
-        }
-      }
-      function textareaEnter($parent, callback) {
-        var count = $parent.children('li').length;
-        var newname = $parent.attr('id')+'['+count+']';
-        var str = makeTemplate(newname);
-        $parent.append(str);
-        if (callback && typeof(callback) === "function") {
-          callback(newname);
-        }
-      }
-      function textareaHandle(e) {
-        var $parent = $(this).parent().parent();
-        var code = (e.keyCode ? e.keyCode : e.which);
-        if(code === 13) {
-          e.preventDefault();
-          if ($(this).val() !== '') {
-            var parent = $(this).parent().parent();
-            textareaEnter(parent, function(name) {
-              $('textarea[name="'+name+'"]')[0].focus();
-            });
-          } else {
-            alert('No value.');
-            return false;
-          }
-          return false;
-        }
-      }
-      return this.each( function() {
-        var $this = $(this);
-        $this.on('click', '.add', addItem);
-        $this.on('click', '.remove', removeItem);
-        $this.on('keypress', 'textarea', textareaHandle);
-      });
-    }
-  });
-  $(function() {
-    $('.list_field').listfield();
-  });
-})( jQuery );
+function makeTemplate(skillLabel, name) {
+  return '<label class="col-lg-2 control-label">Skill Item '+skillLabel+'</label><div class="col-md-10 input-group"><input type="text" name="'+name+'" class="form-control" placeholder="List item content..."/><span class="input-group-btn"><button class="btn btn-default add" type="button">+</button></span><span class="input-group-btn"><button class="btn btn-default remove" type="button">-</button></span></div>';
+}
+function addItem () {
+  var $parent = $(this).parent().parent().parent(); //form
+  var count = $parent.children('.col-md-10').length; // # of fields
+  var newname = $parent.children().children('input').attr('id')+'['+count+']';
+  var newLabel = $parent.attr('label')+count;
+  var $previousTextarea = $(this).parent().siblings('input');
+  if ($previousTextarea.val() !== '') {
+    var str = makeTemplate(newLabel, newname);
+    $parent.append(str);
+  } else {
+    alert('No Value');
+    return false;
+  }  
+}
+$(function(){
+  var $this = $(this); // More effiecient
+  $this.on('click', '.add', addItem);
+});
