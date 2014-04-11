@@ -48,6 +48,7 @@ class Users extends Public_Controller
 	public function view($username = null)
 	{
 		// work out the visibility setting
+		var_dump($this->input->cookie("localhost/senior-project/isTypeChosen"));
 		switch (Settings::get('profile_visibility'))
 		{
 			case 'public':
@@ -152,13 +153,20 @@ class Users extends Public_Controller
 			if (strpos($redirect_to, ':') !== false and strpos($redirect_to, site_url()) !== 0)
 			{
 				// Just login to the homepage
+				
 				redirect('');
 			}
 
 			// Passes muster, on your way
 			else
 			{
-				redirect($redirect_to ? $redirect_to : '');
+				redirect('users/welcome');
+				// if ($this->current_user->group === 'visitor'){
+				// 	redirect('users/welcome');
+				// } else {
+				// 	redirect($redirect_to ? $redirect_to : '');
+				// }
+				
 			}
 		}
 
@@ -217,6 +225,13 @@ class Users extends Public_Controller
 		$this->template
 			->title(lang('user:register_title'))
 			->build('register_choice');		
+	}
+
+	public function welcome()
+	{
+		$this->template
+			->title(lang('user:welcome_title'))
+			->build('welcome');
 	}
 
 	/**
@@ -401,8 +416,10 @@ class Users extends Public_Controller
 					$profile_data['display_name'] = $username;
 				}
 
-				// We are registering with a null group_id so we just
-				// use the default user ID in the settings.
+				// (Deprecated) We are registering with a null group_id so we just
+				// (Deprecated)use the default user ID in the settings.
+				// User default group changed to VISITOR (modified in ion_auth config)
+				// we can detect whether he has chosen to be a sponsor or an project uploader
 				$id = $this->ion_auth->register($username, $password, $email, null, $profile_data);
 
 				// Try to create the user
@@ -432,7 +449,9 @@ class Users extends Public_Controller
 						), 'array');
 					}
 
-					// show the "you need to activate" page while they wait for their email
+					// (Deprecated)show the "you need to activate" page while they wait for their email
+					// Show the welcome page to choose whether to join as a student
+					// or as a sponsor
 					if ((int)Settings::get('activation_email') === 1)
 					{
 						$this->session->set_flashdata('notice', $this->ion_auth->messages());
@@ -444,7 +463,11 @@ class Users extends Public_Controller
 						$this->ion_auth->activate($id, false);
 
 						$this->ion_auth->login($this->input->post('email'), $this->input->post('password'));
-						redirect($this->config->item('register_redirect', 'ion_auth'));
+
+						// if ($_COOKIE['isTypeChosen']){
+						// setcookie('isTypeChosen','', time()+3600*24);
+						// }
+						redirect('users/welcome');
 					}
 					else
 					{

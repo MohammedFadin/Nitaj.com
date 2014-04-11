@@ -24,6 +24,7 @@ $lang['user:list_title'] 					   = 'Users';
 $lang['user:inactive_title']                   = 'Inactive Users';
 $lang['user:active_title']                     = 'Active Users';
 $lang['user:registred_title']                  = 'Registered Users';
+$lang['user:welcome_title']                    = 'Get Started';
 
 // labels
 $lang['user:edit_title']                       = 'Edit User "%s"';
