@@ -226,14 +226,39 @@ class Users extends Public_Controller
 			->title(lang('user:register_title'))
 			->build('register_choice');		
 	}
-
+	/*
+	
+	 */
 	public function welcome()
 	{
+		if ($this->current_user->group == 'admin' 
+			|| $this->current_user->group == 'sponsor' 
+			|| $this->current_user->group == 'student'){
+			redirect();
+		}
 		$this->template
 			->title(lang('user:welcome_title'))
-			->build('welcome');
+			->build('welcome');	
 	}
 
+	/*
+		
+	 */
+	public function choose_group()
+	{
+		if ($this->current_user->group == $this->uri->segment(4)) redirect();
+		if ($this->uri->segment(4) == 'sponsor' || $this->uri->segment(4) == 'student' 
+			|| $this->uri->segment(4) == 'visitor'){
+			$group = array('sponsor' => '3', 'student' => '4', 'visitor' => '5');
+			$user_data = array(
+				'group_id' => $group[$this->uri->segment(4)]
+				);
+			$this->db->where('id', $this->current_user->id);
+			$this->db->update('default_users', $user_data);
+			redirect('gprofile/fill/'.$this->uri->segment(4));
+		}
+		redirect();
+	}
 	/**
 	 * Method to register a new user
 	 */
@@ -464,9 +489,6 @@ class Users extends Public_Controller
 
 						$this->ion_auth->login($this->input->post('email'), $this->input->post('password'));
 
-						// if ($_COOKIE['isTypeChosen']){
-						// setcookie('isTypeChosen','', time()+3600*24);
-						// }
 						redirect('users/welcome');
 					}
 					else

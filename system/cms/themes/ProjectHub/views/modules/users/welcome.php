@@ -12,7 +12,7 @@
                         <div class="form-group">
                             <div class="row text-center">
                                 <div class="col-md-4">
-                                    <a href="#" class="btn btn-success">Student</a>
+                                    <a href="{{url:site uri='users/choose_group/group/student'}}" class="btn btn-success">Student</a>
                                 </div>
                                 <div>
                                     Create Your Project Profile
@@ -21,7 +21,7 @@
                             <hr/>
                             <div class="row text-center">
                                 <div class="col-md-4">
-                                    <a href="#" class="btn btn-warning">Sponsor</a>
+                                    <a href="{{url:site uri='users/choose_group/group/sponsor'}}" class="btn btn-warning">Sponsor</a>
                                 </div>
                                 <div>
                                     Apply to invest and support projects
@@ -30,7 +30,7 @@
                             <hr/>
                             <div class="row text-center">
                                 <div class="col-md-4">
-                                    <a href="#" class="btn btn-primary">Just Browsing</a>
+                                    <a href="{{url:site uri='users/choose_group/group/visitor'}}" class="btn btn-primary">Just Browsing</a>
                                 </div>
                                 <div>
                                     Browse Latest Students Projects
