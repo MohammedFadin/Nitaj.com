@@ -1,28 +1,22 @@
 		<div id="main-container">
 			<div id="breadcrumb">
-				<ul class="breadcrumb">
-					 <li><i class="fa fa-home"></i><a href="index.html"> Home</a></li>
-					 <li>Page</li>	 
-					 <li class="active">Profile</li>	 
-				</ul>
 			</div><!--breadcrumb-->
 			<ul class="tab-bar grey-tab">
-				<li class="active">
-					<a href="#overview" data-toggle="tab">
+				<li>
+					<a href="{{url:site uri='my-profile'}}" >
 						<span class="block text-center">
 							<i class="fa fa-home fa-2x"></i> 
 						</span>
 						{{helper:lang line="profile_overview"}}
 					</a>
 				</li>
-				<li>
+				<li class="active">
 					<a href="#edit" data-toggle="tab">
 						<span class="block text-center">
 							<i class="fa fa-edit fa-2x"></i> 
 						</span>
 						{{helper:lang line="profile_edit"}}
 					</a>
-				</li>
 				<li>
 					<a href="#message" data-toggle="tab">
 						<span class="block text-center">
@@ -51,9 +45,9 @@
 								<div class="seperator"></div>
 								<a class="btn btn-success btn-xs m-bottom-sm">{{helper:lang line="profile_follow"}}</a>
 								<div class="seperator"></div>
-								<a href="#" class="social-connect tooltip-test facebook-hover" data-toggle="tooltip" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="social-connect tooltip-test twitter-hover" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
-								<a href="#" class="social-connect tooltip-test google-plus-hover" data-toggle="tooltip" data-original-title="Google Plus"><i class="fa fa-google-plus"></i></a>
+								<a href="http://facebook.com/<?php echo $_user['facebook'];?>" class="social-connect tooltip-test facebook-hover" data-toggle="tooltip" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
+								<a href="http://twitter.com/<?php echo $_user['twitter'];?>" class="social-connect tooltip-test twitter-hover" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
+								<a href="http://google.com/plus/<?php echo $_user['google_plus'];?>" class="social-connect tooltip-test google-plus-hover" data-toggle="tooltip" data-original-title="Google Plus"><i class="fa fa-google-plus"></i></a>
 								<div class="seperator"></div>
 								<div class="seperator"></div>
 							</div><!-- /.col -->
@@ -106,7 +100,7 @@
 					</div><!-- /.col -->
 					<div class="col-md-9 col-sm-9">
 						<div class="tab-content">
-							<div class="tab-pane fade in active" id="overview">
+							<div class="tab-pane fade" id="overview">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="panel panel-default fadeInDown animation-delay2">
@@ -125,15 +119,11 @@
 											<div class="panel-heading">
 												<i class="fa fa-gavel"></i> {{helper:lang line="profile_personal_section"}}
 											</div>
-											{{ user:profile_fields user_id=_user:id }}
-												{{ if slug !='last_login' and slug !='display_name' and slug!='lang' and slug !='updated_on' and slug !='mini_resume' and slug !='ip_address' and slug !='id'  and slug !='achievements' and slug !='company' and slug !='username' and slug !='email' and slug !='work_and_education'}}						
 											<ul class="list-group"> 
 												<li class="list-group-item"> 
-													<p><strong>{{ name }}: </strong>{{value}}</p> 
+													<p><strong> </strong></p> 
 												</li> 
-											</ul><!-- /list-group -->
-												{{ endif }}
-											{{ /user:profile_fields }}												
+											</ul><!-- /list-group -->																						
 										</div><!-- /panel Personal Details-->
 									</div><!-- /.col -->
 									<div class="col-md-6">
@@ -198,171 +188,155 @@
 									</div><!-- /.col -->
 								</div><!-- /.row -->
 							</div><!-- /tab1 -->
-							<div class="tab-pane fade" id="edit">
-								
+							<div class="tab-pane fade in active" id="edit">
 								<div class="row">
 									<div class="panel panel-info pull-right">
 										<div class="panel-body">
-											Last Update on 12 Oct,2013
+											Created On <?php echo date('Y-m-d H:i:s', $_user['updated_on']);?>
 										</div>
 									</div><!-- /panel -->
 								</div><!-- /.row -->
-								
+    <div class="row-fluid">
+        <?php if (validation_errors()): ?>
+        <!-- Woops... -->
+        <div class="row-fluid">
+            <div class="span12">
+              <div class="alert alert-error">
+                <a class="close">&times;</a>
+                <?php echo validation_errors();?>
+              </div>
+            </div>
+        </div>
+        <?php endif; ?>
+        </div>								
 								<div class="panel panel-default">
-									<form class="form-horizontal form-border">
+<!-- 									<form class="form-horizontal form-border">
+ -->            <?php echo form_open_multipart('', array('id'=>'user_edit', 'class' => 'crud_form form-horizontal form-border')); ?>																
 										<div class="panel-heading">
 											Basic Information
 										</div>
 										<div class="panel-body">
 											<div class="form-group">
-												<label class="control-label col-md-2">Username</label>												
-												<div class="col-md-10">
-													<input type="text" class="form-control input-sm" placeholder="Username" value="John Doe">
+												<label class="control-label col-md-2"><i class="fa fa-twitter-square fa-2x"></i></label>
+												<div class="col-md-2">
+													<input type="text" name="twitter" value="<?php echo $_user['twitter'];?>" class="form-control input-sm">
 												</div><!-- /.col -->
-											</div><!-- /form-group -->
+												<label class="control-label col-md-2"><i class="fa fa-facebook-square fa-2x"></i></label>
+												<div class="col-md-2">
+													<input type="text" name="facebook" value="<?php echo $_user['facebook'];?>" class="form-control input-sm">
+												</div><!-- /.col -->
+												<label class="control-label col-md-2"><i class="fa fa-google-plus fa-2x"></i></label>
+												<div class="col-md-2">
+													<input type="text" name="google_plus" value="<?php echo $_user['google_plus'];?>" class="form-control input-sm">
+												</div><!-- /.col -->																								
+											</div>
 											<div class="form-group">
-												<label class="control-label col-md-2">Password</label>
+												<label class="control-label col-md-2"><?php echo lang('profile_display_name'); ?></label>												
 												<div class="col-md-10">
-													<input type="password" class="form-control input-sm" value="Password">
+													<input type="text" name="display_name" class="form-control input-sm" placeholder="Username" value="<?php echo $display_name;?>">
 												</div><!-- /.col -->
-											</div><!-- /form-group -->
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-2">First Name</label>												
+												<div class="col-md-10">
+													<input type="text" name="first_name" class="form-control input-sm" placeholder="First Name" value="<?php echo $_user['first_name']; ?>" required>
+												</div><!-- /.col -->
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-2">Last Name</label>												
+												<div class="col-md-10">
+													<input type="text" name="last_name" class="form-control input-sm" placeholder="Last Name" value="<?php echo $_user['last_name']; ?>" required>
+												</div><!-- /.col -->
+											</div>											
+											<div class="form-group">
+												<label class="control-label col-md-2"><?php echo lang('user:password_label') ?></label>
+												<div class="col-md-10">
+													<input type="password" name="password" class="form-control input-sm" value="">
+												</div><!-- /.col -->
+											</div>	                              			
 											<div class="form-group">
 												<label class="control-label col-md-2">Email</label>
 												<div class="col-md-10">
-													<input type="text" class="form-control input-sm" value="john_doe@email.com">
+													<input type="text" name="email" class="form-control input-sm" value="<?php echo $_user['email'];?>" required>
 												</div><!-- /.col -->
 											</div><!-- /form-group -->
+											<?php foreach ($profile_fields as $field):?>
+												<?php if ($field['input']):?>
+												<?php if ($field['field_slug'] == 'work_and_education'):?>
+											<div class="form-group">
+												<div class="row">
+											<label class="col-md-2 control-label"><strong>My SKill List</strong></label>
+												</div>
+												<?php echo $field['input'];?>
+											</div>
+												<?php endif;?>
+												<?php endif;?>
+											<?php endforeach;?>
+											<div class="form-group">
+												<label class="control-label col-md-2">Website Language</label>
+												<div class="col-md-10">
+													<label class="label-radio inline">
+														<input type="radio" name="lang" value="en" <?php echo $_user['lang']=='en'? 'checked':'';?>>
+														<span class="custom-radio"></span>
+														English
+													</label>
+													<label class="label-radio inline">
+														<input type="radio" name="lang" value="ar" <?php echo $_user['lang']=='ar'? 'checked':'';?>>
+														<span class="custom-radio"></span>
+														Arabic
+													</label>
+												</div><!-- /.col -->
+											</div>
 											<div class="form-group">
 												<label class="control-label col-md-2">Gender</label>
 												<div class="col-md-10">
 													<label class="label-radio inline">
-														<input type="radio" name="inline-radio" checked>
+														<input type="radio" name="gender" value="m" <?php echo $_user['gender']=='m'? 'checked':'';?>>
 														<span class="custom-radio"></span>
 														Male
 													</label>
 													<label class="label-radio inline">
-														<input type="radio" name="inline-radio">
+														<input type="radio" name="gender" value="f" <?php echo $_user['gender']=='f'? 'checked':'';?>>
 														<span class="custom-radio"></span>
 														Female
 													</label>
 												</div><!-- /.col -->
 											</div><!-- /form-group -->
 											<div class="form-group">
-												<label class="control-label col-md-2">Address</label>
+												<label class="control-label col-md-2">Mini Resume</label>
 												<div class="col-md-10">
-													<textarea class="form-control" rows="3"></textarea>
+													<textarea name="mini_resume" class="form-control" rows="3"><?php echo $_user['mini_resume'];?></textarea>
 												</div><!-- /.col -->
 											</div><!-- /form-group -->
 											<div class="form-group">
-												<label class="control-label col-md-2">Phone</label>
+												<label class="control-label col-md-2">Achievement</label>
 												<div class="col-md-10">
-													<input type="text" class="form-control input-sm">
+													<textarea name="achievements" class="form-control" rows="3"><?php echo $_user['achievements'];?></textarea>
 												</div><!-- /.col -->
-											</div><!-- /form-group -->
-										</div>
-										<div class="panel-footer">
-											<div class="text-right">
-												<button class="btn btn-sm btn-success">Update</button>
-												<button class="btn btn-sm btn-success" type="reset">Reset</button>
 											</div>
+											<!-- /form-group -->
 										</div>
-									</form>
-								</div><!-- /panel -->
-							
-								<div class="panel panel-default">
-									<div class="panel-body padding-xs">
-										<textarea class="form-control no-border no-shadow" rows="2" placeholder="What's on your mind?"></textarea>
-									</div>
-									<div class="panel-footer clearfix">
-										<a class="btn btn-xs btn-success pull-right">Post</a>
-									</div>
-								</div><!-- /panel -->
-								<div class="panel panel-default">
+										<div class="panel panel-default">
 									<div class="panel-heading">
-										About Me
+										My Skills
 									</div>
-									<div class="panel-body padding-xs">
-										<textarea class="form-control no-border no-shadow" rows="5" placeholder="Who are you?"></textarea>
-									</div>
-									<div class="panel-footer clearfix">
-										<a class="btn btn-xs btn-success pull-right">Save</a>
-									</div>
-								</div><!-- /panel -->
+									<?php foreach ($profile_fields as $field):?>
+										<?php if ($field['input']):?>
+										<?php if ($field['field_slug'] == 'skills_list'):?>
+											<?php echo $field['input'];?>
+										<?php endif;?>
+										<?php endif;?>
+									<?php endforeach;?>
 									
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										Products
-									</div>
-									<table class="table table-bordered table-condensed table-hover table-striped table-vertical-center">
-										<thead>
-											<tr>
-												<th></th>
-												<th class="text-center">Name</th>
-												<th class="text-center">Price</th>
-												<th class="text-center">Total Sales</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td class="text-center hidden-xs">
-													<img data-src="holder.js/60x60" alt="Product Image" src=".">
-												</td>
-												<td class="text-center">
-													Leather Bag
-												</td>
-												<td class="text-center">
-													$50
-												</td>
-												<td class="text-center">
-													102
-												</td>
-												<td class="text-center">
-													<a class="btn btn-sm btn-success">Edit</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="text-center hidden-xs">
-													<img data-src="holder.js/60x60" alt="Product Image" src=".">
-												</td>
-												<td class="text-center">
-													Brown Sunglasses
-												</td>
-												<td class="text-center">
-													$80
-												</td>
-												<td class="text-center">
-													310
-												</td>
-												<td class="text-center">
-													<a class="btn btn-sm btn-success">Edit</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="text-center hidden-xs">
-													<img data-src="holder.js/60x60" alt="Product Image" src=".">
-												</td>
-												<td class="text-center">
-													Summer Dress
-												</td>
-												<td class="text-center">
-													$35
-												</td>
-												<td class="text-center">
-													89
-												</td>
-												<td class="text-center">
-													<a class="btn btn-sm btn-success">Edit</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-									<div class="panel-footer text-right">
-										<a class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Add Product</a>
-										<a class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i> Delete</a>
-									</div>
-								</div><!-- panel -->
+								</div>
+										<div class="panel-footer">
+                    						<div class="text-right">
+												<button name="btnSubmit" class="btn btn-sm btn-success">Update</button>			
+											</div>
+								</div><!-- /panel -->
 							</div><!-- /tab2 -->
+						</div>
+        					<?php echo form_close(); ?>							
 							<div class="tab-pane fade" id="message">
 								<div class="panel panel-default inbox-panel">
 									<div class="panel-heading">
@@ -404,7 +378,7 @@
 												<span class="custom-checkbox"></span>
 											</label>
 											<span class="starred"><i class="fa fa-star fa-lg"></i></span>
-											<span class="from">John Doe</span>		
+											<span class="from">Mohammed Fadin</span>		
 										
 											<span class="detail">
 												<span class="label label-danger">Important</span>		
@@ -421,7 +395,7 @@
 												<span class="custom-checkbox"></span>
 											</label>
 											<span class="starred"><i class="fa fa-star fa-lg"></i></span>
-											<span class="from">Jane Doe</span>		
+											<span class="from">Mohammed Fadin</span>		
 											<span class="detail">
 												<span class="label label-info">Work</span>		
 												Nunc vel lorem volutpat, placerat erat ut, pulvinar mi.
@@ -449,7 +423,7 @@
 												<span class="custom-checkbox"></span>
 											</label>
 											<span class="not-starred"><i class="fa fa-star-o fa-lg"></i></span>
-											<span class="from">John Doe</span>		
+											<span class="from">Mohammed Fadin</span>		
 											<span class="detail">Suspendisse tristique ullamcorper sapien id pulvinar.</span>		
 											<span class="inline-block pull-right">
 												<span class="time">Oct 10</span>		
@@ -491,7 +465,7 @@
 												<span class="custom-checkbox"></span>
 											</label>
 											<span class="not-starred"><i class="fa fa-star-o fa-lg"></i></span>
-											<span class="from">John Doe</span>		
+											<span class="from">Mohammed Fadin</span>		
 											<span class="detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor suscipit lobortis.</span>
 											<span class="inline-block pull-right">
 												<span class="attachment"><i class="fa fa-paperclip fa-lg"></i></span>							
@@ -531,7 +505,7 @@
 												<span class="custom-checkbox"></span>
 											</label>
 											<span class="not-starred"><i class="fa fa-star-o fa-lg"></i></span>
-											<span class="from">John Doe</span>		
+											<span class="from">Mohammed Fadin</span>		
 											<span class="detail">Suspendisse tristique ullamcorper sapien id pulvinar.</span>
 											<span class="inline-block pull-right">								
 												<span class="time">Aug 30</span>		
@@ -591,7 +565,7 @@
 												 <span class="custom-checkbox"></span>
 											</label>
 											<span class="not-starred"><i class="fa fa-star-o fa-lg"></i></span>
-											<span class="from">John Doe</span>		
+											<span class="from">Mohammed Fadin</span>		
 											<span class="detail">Suspendisse tristique ullamcorper sapien id pulvinar.</span>		
 											<span class="inline-block pull-right">
 												<span class="time">July 11</span>		
@@ -640,5 +614,4 @@
 					</div><!-- /.col -->
 				</div><!-- /.row -->			
 			</div><!-- /.padding-md -->
-
 		</div><!-- /main-container -->

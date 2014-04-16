@@ -24,15 +24,16 @@ $lang['user:list_title'] 					   = 'Users';
 $lang['user:inactive_title']                   = 'Inactive Users';
 $lang['user:active_title']                     = 'Active Users';
 $lang['user:registred_title']                  = 'Registered Users';
+$lang['user:welcome_title']                    = 'Get Started';
 
 // labels
 $lang['user:edit_title']                       = 'Edit User "%s"';
 $lang['user:details_label']                    = 'Details';
 $lang['user:first_name_label']                 = 'First Name';
 $lang['user:last_name_label']                  = 'Last Name';
-$lang['user:group_label']                      = 'Group';
+$lang['user:group']                      = 'Group';
 $lang['user:activate_label']                   = 'Activate';
-$lang['user:email_label']                   = 'Email';
+$lang['user:email']                   = 'Email';
 $lang['user:password_label']                   = 'Password';
 $lang['user:password_confirm_label']           = 'Confirm Password';
 $lang['user:name_label']                       = 'Name';
@@ -193,7 +194,7 @@ $lang['profile_overview']             = 'Overview';
 $lang['profile_personal_section']     = 'Personal Details';
 
 $lang['profile_display_name']         = 'Display Name';
-$lang['profile_dob']                  = 'Date of Birth';
+$lang['user:dob']                  = 'Date of Birth';
 $lang['profile_dob_day']              = 'Day';
 $lang['profile_dob_month']            = 'Month';
 $lang['profile_dob_year']             = 'Year';

@@ -3,8 +3,8 @@
 /**
  * User controller for the users module (frontend)
  *
- * @author		 Phil Sturgeon
- * @author		PyroCMS Dev Team
+ * @author		Mohammed Fadin
+ * @author		Phil Storegoun
  * @package		PyroCMS\Core\Modules\Users\Controllers
  */
 class Users extends Public_Controller
@@ -32,7 +32,7 @@ class Users extends Public_Controller
 	{
 		if (isset($this->current_user->id))
 		{
-			$this->view($this->current_user->id);
+			$this->view($this->current_user->id); //call view for id
 		}
 		else
 		{
@@ -48,6 +48,7 @@ class Users extends Public_Controller
 	public function view($username = null)
 	{
 		// work out the visibility setting
+		var_dump($this->input->cookie("localhost/senior-project/isTypeChosen"));
 		switch (Settings::get('profile_visibility'))
 		{
 			case 'public':
@@ -72,7 +73,6 @@ class Users extends Public_Controller
 				$this->current_user or redirect('users/login/users/view/'.$username);
 				break;
 		}
-
 		// Don't make a 2nd db call if the user profile is the same as the logged in user
 		if ($this->current_user && $username === $this->current_user->username)
 		{
@@ -81,7 +81,7 @@ class Users extends Public_Controller
 		// Fine, just grab the user from the DB
 		else
 		{
-			$user = $this->ion_auth->get_user($username);
+			$user = (array)$this->ion_auth->get_user($username);
 		}
 
 		// No user? Show a 404 error
@@ -92,9 +92,6 @@ class Users extends Public_Controller
 		));
 	}
 
-	/**
-	 * Let's login, shall we?
-	 */
 	public function login()
 	{
 		// Check post and session for the redirect place
@@ -156,13 +153,20 @@ class Users extends Public_Controller
 			if (strpos($redirect_to, ':') !== false and strpos($redirect_to, site_url()) !== 0)
 			{
 				// Just login to the homepage
+				
 				redirect('');
 			}
 
 			// Passes muster, on your way
 			else
 			{
-				redirect($redirect_to ? $redirect_to : '');
+				redirect('users/welcome');
+				// if ($this->current_user->group === 'visitor'){
+				// 	redirect('users/welcome');
+				// } else {
+				// 	redirect($redirect_to ? $redirect_to : '');
+				// }
+				
 			}
 		}
 
@@ -222,7 +226,39 @@ class Users extends Public_Controller
 			->title(lang('user:register_title'))
 			->build('register_choice');		
 	}
+	/*
+	
+	 */
+	public function welcome()
+	{
+		if ($this->current_user->group == 'admin' 
+			|| $this->current_user->group == 'sponsor' 
+			|| $this->current_user->group == 'student'){
+			redirect();
+		}
+		$this->template
+			->title(lang('user:welcome_title'))
+			->build('welcome');	
+	}
 
+	/*
+		
+	 */
+	public function choose_group()
+	{
+		if ($this->current_user->group == $this->uri->segment(4)) redirect();
+		if ($this->uri->segment(4) == 'sponsor' || $this->uri->segment(4) == 'student' 
+			|| $this->uri->segment(4) == 'visitor'){
+			$group = array('sponsor' => '3', 'student' => '4', 'visitor' => '5');
+			$user_data = array(
+				'group_id' => $group[$this->uri->segment(4)]
+				);
+			$this->db->where('id', $this->current_user->id);
+			$this->db->update('default_users', $user_data);
+			redirect('gprofile/fill/'.$this->uri->segment(4));
+		}
+		redirect();
+	}
 	/**
 	 * Method to register a new user
 	 */
@@ -242,6 +278,7 @@ class Users extends Public_Controller
 				->build('disabled');
 			return;
 		}
+
 
 		// Validation rules
 		$validation = array(
@@ -404,8 +441,10 @@ class Users extends Public_Controller
 					$profile_data['display_name'] = $username;
 				}
 
-				// We are registering with a null group_id so we just
-				// use the default user ID in the settings.
+				// (Deprecated) We are registering with a null group_id so we just
+				// (Deprecated)use the default user ID in the settings.
+				// User default group changed to VISITOR (modified in ion_auth config)
+				// we can detect whether he has chosen to be a sponsor or an project uploader
 				$id = $this->ion_auth->register($username, $password, $email, null, $profile_data);
 
 				// Try to create the user
@@ -435,7 +474,9 @@ class Users extends Public_Controller
 						), 'array');
 					}
 
-					// show the "you need to activate" page while they wait for their email
+					// (Deprecated)show the "you need to activate" page while they wait for their email
+					// Show the welcome page to choose whether to join as a student
+					// or as a sponsor
 					if ((int)Settings::get('activation_email') === 1)
 					{
 						$this->session->set_flashdata('notice', $this->ion_auth->messages());
@@ -447,7 +488,8 @@ class Users extends Public_Controller
 						$this->ion_auth->activate($id, false);
 
 						$this->ion_auth->login($this->input->post('email'), $this->input->post('password'));
-						redirect($this->config->item('register_redirect', 'ion_auth'));
+
+						redirect('users/welcome');
 					}
 					else
 					{
@@ -479,6 +521,7 @@ class Users extends Public_Controller
 				// Convert the array to an object
 				$user->email = ( ! empty($user_hash['email'])) ? $user_hash['email'] : '';
 				$user->username = $user_hash['nickname'];
+				$user->first_name = $user_hash['first_name'];
 			}
 		}
 
@@ -688,7 +731,7 @@ class Users extends Public_Controller
 		// Get the profile data
 		$profile_row = $this->db->limit(1)
 			->where('user_id', $user->id)->get('profiles')->row();
-
+		 
 		// If we have API's enabled, load stuff
 		if (Settings::get('api_enabled') and Settings::get('api_user_keys'))
 		{
@@ -774,10 +817,14 @@ class Users extends Public_Controller
 
 			$profile_data = $secure_post;
 
+			// Insert the users skill_exp
+			//var_dump($profile_data);
+			//
+			//$this->db->insert("default_profiles", )
 			if ($this->ion_auth->update_user($user->id, $user_data, $profile_data) !== false)
 			{
 				Events::trigger('post_user_update');
-				$this->session->set_flashdata('success', $this->ion_auth->messages());
+				//$this->session->set_flashdata('success', $this->ion_auth->messages());
 			}
 			else
 			{
@@ -822,9 +869,10 @@ class Users extends Public_Controller
 
 		$profile_stream_id = $this->streams_m->get_stream_id_from_slug('profiles', 'users');
 		$this->fields->run_field_events($this->streams_m->get_stream_fields($profile_stream_id), array());
-
+		// var_dump($this->streams_m->get_stream_fields($profile_stream_id));
 		// --------------------------------
-
+		//Down cast it to array before sending to view 
+		$user = (array) $user;
 		// Render the view
 		$this->template->build('profile/edit', array(
 			'_user' => $user,

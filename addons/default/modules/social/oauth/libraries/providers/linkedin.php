@@ -41,13 +41,20 @@ class OAuth_Provider_Linkedin extends OAuth_Provider {
 		// Sign the request using the consumer and token
 		$request->sign($this->signature, $consumer, $token);
 		
-		$user = Format::forge($request->execute(), 'xml')->to_array();
+		//$user = simplexml_load_string($request->execute());
+		//$user = json_encode($user);
+		//$user = json_decode($user, TRUE); // array
+		//$user = Format::forge($request->execute(), 'xml')->to_array(); //old
+		$ci = get_instance();
+		$ci->load->library('format');
+		$user = $ci->format->factory($request->execute(), 'xml')->to_array();		
 		
 		// Create a response from the request
+		$temp_nickname = explode('/', $user['public-profile-url']);
 		return array(
 			'uid' => $user['id'],
-			'name' => $user['first-name'].' '.$user['last-name'],
-			'nickname' => end(explode('/', $user['public-profile-url'])),
+			'first_name' => $user['first-name'].' '.$user['last-name'],
+			'nickname' => $temp_nickname[4],
 			'description' => $user['headline'],
 			'location' => isset($user['location']['name']) ? $user['location']['name'] : null,
 			'urls' => array(
