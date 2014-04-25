@@ -250,14 +250,34 @@ class Users extends Public_Controller
 		if ($this->uri->segment(4) == 'sponsor' || $this->uri->segment(4) == 'student' 
 			|| $this->uri->segment(4) == 'visitor'){
 			$group = array('sponsor' => '3', 'student' => '4', 'visitor' => '5');
-			$user_data = array(
-				'group_id' => $group[$this->uri->segment(4)]
-				);
-			$this->db->where('id', $this->current_user->id);
-			$this->db->update('default_users', $user_data);
-			redirect('gprofile/fill/'.$this->uri->segment(4));
+			// $user_data = array(
+			// 	'group_id' => $group[$this->uri->segment(4)]
+			// 	);
+			// $this->db->where('id', $this->current_user->id);
+			// $this->db->update('default_users', $user_data);
+			//redirect('gprofile/'.$this->uri->segment(4));
+			$this->template
+				->title(lang('user:welcome_title'))
+				->build('gprofile/'.$this->uri->segment(4));				
+		}else{
+			redirect(); // go home man
 		}
-		redirect();
+	}
+
+	/**
+	 * Method to create a user as student
+	 * @return [type] [description]
+	 */
+	public function student_group()
+	{
+		$user_data = array(
+			'group_id' => '4'
+			);
+		$this->db->where('id', $this->current_user->id);
+		$this->db->update('default_users', $user_data);		
+		$this->template
+			->title('Create Student Profile')
+			->build('gprofile/student_group');
 	}
 	/**
 	 * Method to register a new user
@@ -278,7 +298,6 @@ class Users extends Public_Controller
 				->build('disabled');
 			return;
 		}
-
 
 		// Validation rules
 		$validation = array(
