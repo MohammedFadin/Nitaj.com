@@ -236,5 +236,19 @@ $lang['profile_myproject_stats']     	= 'Project';
 $lang['profile_investors']     			= 'Investors';
 $lang['profile_achievements']     		= 'Achievements';
 
+// -- Create Project Welcome Page ------------------------------------------------------------------------------------------------
+$lang['project_header']             = 'Get Started!';
+$lang['project_title']              = 'Project Title';
+$lang['project_logo']               = 'Project Logo';
+$lang['project_category']             = 'Project Category';
+$lang['project_school']             = 'Project School';
+$lang['project_course']             = 'Project Course';
+$lang['project_website']             = 'Project Website';
+$lang['project_team']               = 'Projects Team';
+$lang['project_social']             = 'Project Social Links';
+$lang['project_desc']               = 'Project Description';
+$lang['project_files']             = 'Project Files';
+
+// -- Create Project Welcome Page ------------------------------------------------------------------------------------------------
 
 /* End of file user_lang.php */

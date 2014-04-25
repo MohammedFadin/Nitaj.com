@@ -1,17 +1,17 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Module_projecthub extends Module {
+class Module_bmc extends Module {
 
-	public $version = '1.0';
+	public $version = '2.1';
 
 	public function info()
 	{
 		return array(
 			'name' => array(
-				'en' => 'ProjectHub'
+				'en' => 'BMC'
 			),
 			'description' => array(
-				'en' => 'ProjectHub module - Senior Project.'
+				'en' => 'BMC Majors Courses Center Module.'
 			),
 			'frontend' => TRUE,
 			'backend' => TRUE,
