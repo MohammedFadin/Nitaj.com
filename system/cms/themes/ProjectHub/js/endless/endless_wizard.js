@@ -2,16 +2,17 @@ $(function	()	{
 
 	//Form Wizard 1
 	var currentStep_1 = 1;
-	
+	$('#lastStepBtn').hide();
 	//Form Wizard 2
 	var currentStep_2 = 1; 
+	var postFlag = false;
 	
 	$('.wizard-demo li a').click(function()	{
-		alert('You must enter your information')
+		// alert('You must enter your information')
 		return false;
 	});
 	 
-	//Form Validation
+	// //Form Validation
 	$('#basic-constraint').parsley( { listeners: {
         onFormSubmit: function ( isFormValid, event ) {
             if(isFormValid)	{
@@ -56,6 +57,11 @@ $(function	()	{
 			return false;
 		},
         onFormSubmit: function ( isFormValid, event ) {
+
+        	if (isFormValid == true && currentStep_1 == 3){
+        		return true;
+        	}
+
             if(isFormValid)	{
 					
 				currentStep_1++;
@@ -73,8 +79,8 @@ $(function	()	{
 					
 					$('#nextStep1').attr('disabled',true);
 					$('#nextStep1').addClass('disabled');
-				}
-				
+					$('#lastStepBtn').show();
+				}				
 				return false;
 			}
         }

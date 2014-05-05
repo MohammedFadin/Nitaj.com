@@ -27,7 +27,6 @@
                 </div>
                 <div class="panel-body">
                     <?php echo form_open('register', array('id' => 'register')) ?>
-                    <?php var_dump($_user);?>
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" name="username" class="form-control input-sm bounceIn animation-delay2" maxlength="100" value="<?php echo $_user->username ?>" />
@@ -47,13 +46,6 @@
         <?php echo $field['input'] ?>   
                         </div><!-- /form-group -->    
     <?php } } ?>                                                                   
-                        <div class="form-group">
-                            <label class="label-checkbox">
-                                 <input type="checkbox"/>
-                                 <span class="custom-checkbox info bounceIn animation-delay6"></span>
-                                 I accept the agreement.
-                            </label>
-                        </div><!-- /form-group -->
 
                         <div class="seperator"></div>
                         <div class="form-group">

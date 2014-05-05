@@ -22,6 +22,7 @@
 
 // front-end
 $route['bmc(/:num)?']			= 'bmc/index$1';
+$route['project/create/(:any)?']        = 'project/create';
 $route['bmc/(:num)/(:any)']		= 'bmc/download/$3';
 $route['resources/uploads/(:any)']	= 'google.com';
 

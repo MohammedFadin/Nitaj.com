@@ -56,5 +56,5 @@ $route['my-profile']	                    = 'users/index';
 $route['edit-profile']	                    = 'users/edit';
 
 $route['sitemap.xml']                       = 'sitemap/xml';
-
+$route['users/choose_group/group/student']               = 'project/create';
 /* End of file routes.php */
