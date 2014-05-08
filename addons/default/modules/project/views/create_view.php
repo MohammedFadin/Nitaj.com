@@ -75,16 +75,20 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-lg-2"><?php echo lang('project_website');?></label>
-                                        <div class="col-lg-6">
-                                            <input type="text" name="project_website" class="form-control input-sm" value="<?php echo set_value('project_website');?>" placeholder="http://your_project.com" data-required="true">
-                                        </div><!-- /.col -->
+                                        <div class="col-lg-6">                                        
+                                            <div class="input-group">
+                                                <span class="input-group-addon">URL</span>                                            
+                                                <input type="text" name="project_website" class="form-control input-sm" value="<?php echo set_value('project_website');?>" placeholder="http://your_project.com" data-required="true">
+                                            </div><!-- /.col -->
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="wizardContent2">
                                     <div class="form-group">
                                         <label class="control-label col-lg-2"><?php echo lang('project_team');?></label>
                                         <div class="col-lg-6">
-                                            <input type="text" name="project_team" class="form-control input-sm" value="<?php echo set_value('project_team');?>" placeholder="" data-required="true">
+                                            <!-- <input type="text" name="project_team" class="form-control input-sm" value="<?php echo set_value('project_team');?>" placeholder="" data-required="true"> -->
+                                            <input type="text" name="tag[]" value="" class="tag form-control input-sm"/>
                                         </div><!-- /.col -->
                                     </div><!-- /form-group -->      
                                     <div class="form-group">
@@ -138,4 +142,24 @@
             </div>
                 <?php echo form_close();?>
         </div>
-    </div>
+    </div> 
+<script type="text/javascript">
+
+$(document).ready(function () {
+   $('input.tag').tagedit({
+      autocompleteURL: 'auto_complete_project_team' 
+    });
+});
+    
+</script>    
+<!-- <script type="text/javascript">
+    $('#textarea').textext({
+        plugins : 'tags autocomplete ajax',
+        prompt : '',
+        ajax : {
+            url : 'project/ajaxteam',
+            dataType : 'json',
+            cacheResults : true
+        }
+    });
+</script>    --> 
