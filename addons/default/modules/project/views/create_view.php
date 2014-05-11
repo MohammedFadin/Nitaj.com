@@ -110,18 +110,24 @@
                                     </div><!-- /form-group -->
                                 </div>
                                 <div class="tab-pane fade padding-md" id="wizardContent3">
-                                <div class="form-group">
-                                    <label class="col-lg-2 control-label"><?php echo lang('project_desc');?></label>
-                                    <div class="col-lg-10">
-                                        <?php echo form_textarea(array('id' => 'wysihtml5-textarea', 'name' => 'project_description', 'value' => set_value('project_description'), 'class' => 'form-control', 'row' => 6));?>
-                                    </div><!-- /.col -->
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-lg-2"><?php echo lang('project_files');?></label>
-                                    <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label"><?php echo lang('project_desc');?></label>
+                                        <div class="col-lg-10">
+                                            <?php echo form_textarea(array('id' => 'wysihtml5-textarea', 'name' => 'project_description', 'value' => set_value('project_description'), 'class' => 'form-control', 'row' => 6));?>
+                                        </div><!-- /.col -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-2"><?php echo lang('project_files');?></label>
+                                        <div class="col-lg-6">
+                                            <input type="file" name="project_files[]" multiple />
+                                            <br/>
+                                            <br/>
+                                            <div class="alert">
+                                                <i class="fa fa-warning">Note: You can choose multiple of files</i>
+                                            </div>
+                                        </div>
                                         
                                     </div>
-                                </div>
                             </div>
                         </div>
                         <div class="panel-footer clearfix">
@@ -152,6 +158,7 @@ $(document).ready(function () {
 });
     
 </script>    
+
 <!-- <script type="text/javascript">
     $('#textarea').textext({
         plugins : 'tags autocomplete ajax',

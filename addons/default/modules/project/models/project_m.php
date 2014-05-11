@@ -3,15 +3,15 @@
 class Project_m extends MY_Model 
 {
     protected $_table = 'project_projects';
-    
+
     public function Project_m()
     {
         parent::__construct();
     }
 
     /**
-     * [add_project description]
-     * @param [type] $params [description]
+     * [Create a new project + files + team members]
+     * @param [bool] TRUE if insertion went well, otherwise FALSE
      */
     public function add_project($params = array()) 
     {
@@ -29,7 +29,30 @@ class Project_m extends MY_Model
                     'slug' => $params['project_title'],
                     'created_by' => $this->current_user->id
         );
-        return $this->db->insert('project_projects', $insert);
+
+
+        if ( $this->db->insert('project_projects', $insert) )
+        {
+            $last_insert_project = $this->db->insert_id();
+
+            if ($params['tag']) // If team members exists
+            {
+                foreach ($params['tag'] as $key => $value) 
+                {
+                    $insert = array(
+                                'project_id' => $last_insert_project,
+                                'user_id'    => $key
+                    );
+
+                    $this->db->insert('project_teams', $insert);    
+                }
+            }
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
     /**

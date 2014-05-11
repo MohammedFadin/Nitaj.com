@@ -85,7 +85,7 @@ class Module_project extends Module {
 					'constraint' => 100,
 					'unique' => TRUE
 			),
-			'descr' => array(
+			'description' => array(
 					'type' => 'VARCHAR',
 					'constraint' => 400,
 					'unique' => FALSE
@@ -130,11 +130,6 @@ class Module_project extends Module {
 					'constraint' => 100,
 					'unique' => FALSE
 			),
-			'team_id' => array(
-					'type' => 'INT',
-					'constraint' => 9,
-					'unique' => TRUE
-			),
 			'website' => array(
 					'type' => 'VARCHAR',
 					'constraint' => 100,
@@ -144,7 +139,12 @@ class Module_project extends Module {
 					'type' => 'VARCHAR',
 					'constraint' => 100,
 					'unique' => TRUE
-			)
+			),
+			'created_by' => array(
+					'type' => 'INT',
+					'constraint' => 9,
+					'unique' => TRUE
+			)			
 		);
 		
 		$this->dbforge->add_key('id', TRUE);
@@ -177,7 +177,7 @@ class Module_project extends Module {
 					'unsigned' => TRUE
 			),
 			'user_id' => array(
-					'type' => 'VARCHAR',
+					'type' => 'INT',
 					'constraint' => 9,
 					'unique' => TRUE
 			)
@@ -242,53 +242,6 @@ class Module_project extends Module {
 */
 		
 	}
-
-/*
-	public function install()
-	{
-		$this->dbforge->drop_table('project');
-		$this->db->delete('settings', array('module' => 'project'));
-
-		$sample = array(
-                        'id' => array(
-									  'type' => 'INT',
-									  'constraint' => '11',
-									  'auto_increment' => TRUE
-									  ),
-						'name' => array(
-										'type' => 'VARCHAR',
-										'constraint' => '100'
-										),
-						'slug' => array(
-										'type' => 'VARCHAR',
-										'constraint' => '100'
-										)
-						);
-
-		$sample_setting = array(
-			'slug' => 'project_setting',
-			'title' => 'project Setting',
-			'description' => 'A Yes or No option for the project module',
-			'`default`' => '1',
-			'`value`' => '1',
-			'type' => 'select',
-			'`options`' => '1=Yes|0=No',
-			'is_required' => 1,
-			'is_gui' => 1,
-			'module' => 'project'
-		);
-
-		$this->dbforge->add_field($sample);
-		$this->dbforge->add_key('id', TRUE);
-
-		if($this->dbforge->create_table('project') AND
-		   $this->db->insert('settings', $sample_setting) AND
-		   is_dir($this->upload_path.'project') OR @mkdir($this->upload_path.'project',0777,TRUE))
-		{
-			return TRUE;
-		}
-	}
-*/
 
 	public function uninstall()
 	{

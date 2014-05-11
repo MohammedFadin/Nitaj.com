@@ -138,6 +138,11 @@ class Project extends Public_Controller
             $_categories[$category->id] = $category->name;
         }
 
+        // foreach ($this->input->post('tag') as $id => $team_member)
+        // {
+        //     echo $id;
+        // }
+        // 
         $this->template
         ->title(lang('project_header'))
         ->append_css('bootstrap-wysihtml5.css')
