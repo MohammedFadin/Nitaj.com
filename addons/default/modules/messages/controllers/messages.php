@@ -6,7 +6,7 @@ class Messages extends Public_Controller {
     {
         parent::__construct();
     }
-    
+
     /**
      * [index description]
      * @return [type] [description]
@@ -18,6 +18,25 @@ class Messages extends Public_Controller {
         ->build('inbox_view.php');
     }
 
+    /**
+     * [view description]
+     * @param  string $value [description]
+     * @return [type]        [description]
+     */
+    public function view($value='')
+    {
+        # code...
+    }
+
+    /**
+     * [search description]
+     * @param  string $value [description]
+     * @return [type]        [description]
+     */
+    public function search($value='')
+    {
+        # code...
+    }
 }
 
 /* End of file messages.php */
