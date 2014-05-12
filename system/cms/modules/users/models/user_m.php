@@ -204,4 +204,23 @@ class User_m extends MY_Model
 		return $this->get_all();
 	}
 
+	/**
+	 * Get by many
+	 *
+	 * @param array $params
+	 *
+	 * @return object
+	 */
+	public function get_many_by_name($params = array())
+	{
+		$this->db
+			->select($this->profile_table.'.*, g.description as group_name, users.*')
+			->join('groups g', 'g.id = users.group_id')
+			->join('profiles', 'profiles.user_id = users.id', 'left')
+			->limit(10)
+			->where('group_id', 4)
+			->group_by('users.id');
+
+			return parent::get_all();			
+	}
 }

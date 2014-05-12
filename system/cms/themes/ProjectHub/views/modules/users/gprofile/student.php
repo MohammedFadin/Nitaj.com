@@ -1,7 +1,9 @@
 <div id="main-container">
             <div class="padding-md">
                 <div class="panel panel-default">
-                    <form class="form-horizontal no-margin form-border" id="formWizard1" novalidate>
+                <?php echo form_open('project/create', array('class' => 'crud_form form-horizontal no-margin form-border', 'id' => 'formWizard1')); ?>                            
+
+                    <!-- <form class="form-horizontal no-margin form-border" id="formWizard1" novalidate> -->
                         <div class="panel-heading">
                             <?php echo lang('project_header');?>
                         </div>
@@ -94,6 +96,7 @@
                             <div class="pull-left">
                                 <button class="btn btn-success btn-sm disabled" id="prevStep1" disabled>Previous</button>
                                 <button type="submit" class="btn btn-sm btn-success" id="nextStep1">Next</button>
+                                <input  type="submit" class="btn btn-sm btn-success" id="lastStepBtn" value="Submit"/>                            
                             </div>
 
                             <div class="pull-right" style="width:30%">
