@@ -48,7 +48,6 @@ class Users extends Public_Controller
 	public function view($username = null)
 	{
 		// work out the visibility setting
-		var_dump($this->input->cookie("localhost/senior-project/isTypeChosen"));
 		switch (Settings::get('profile_visibility'))
 		{
 			case 'public':

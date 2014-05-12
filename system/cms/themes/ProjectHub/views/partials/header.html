@@ -18,7 +18,7 @@
           <ul class="dropdown-menu message dropdown-1">
             <li><a>You have 4 new unread messages</a></li>            
             <li>
-              <a class="clearfix" href="#">
+              <a class="clearfix" href="{{url:site uri='my-profile'}}">
                 {{ theme:image file="avatar.jpeg"}}
                 <div class="detail">
                   <strong>Sarah AlAli</strong>
@@ -30,7 +30,7 @@
               </a>  
             </li>
             <li>
-              <a class="clearfix" href="#">
+              <a class="clearfix" href="{{url:site uri='messages'}}">
                 {{ theme:image file="avatar.jpeg"}}
                 <div class="detail">
                   <strong>Asiri</strong>
@@ -42,7 +42,7 @@
               </a>  
             </li>
             <li>
-              <a class="clearfix" href="#">
+              <a class="clearfix" href="{{url:site uri='my-profile'}}">
                 {{ theme:image file="avatar.jpeg"}}
                 <div class="detail">
                   <strong>Mohammed Fadin</strong>
@@ -199,6 +199,7 @@
             <li><a tabindex="-1" href="#" class="main-link"><i class="fa fa-edit fa-lg"></i>ProjectHub</a></li>
             {{if settings:enable_profiles}}
             <li><a tabindex="-1" href="{{url:site uri='edit-profile'}}" class="theme-setting"><i class="fa fa-edit fa-lg"></i>{{helper:lang line="edit_profile_label"}}</a></li>
+            <li><a tabindex="-1" href="#" class="main-link"><i class="fa fa-edit fa-lg"></i>Messages</a></li>            
             <li>
               {{if user:has_cp_permissions}}
             <li><a tabindex="-1" href="{{url:site uri='admin'}}" class="main-link"><i class="fa fa-edit fa-lg"></i>{{ helper:lang line="global:control-panel" }}</a></li>

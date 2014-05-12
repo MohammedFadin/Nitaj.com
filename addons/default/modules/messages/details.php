@@ -17,52 +17,70 @@ class Module_messages extends Module {
 			'backend' => TRUE,
 			'menu' => 'content', // You can also place modules in their top level menu. For example try: 'menu' => 'Sample',
 			'sections' => array(
-				'projects' => array(
-					'name' 	=> 'projects',
-					'uri' 	=> 'admin/project/',
+				'Messages' => array(
+					'name' 	=> 'Messages',
+					'uri' 	=> 'admin/messages/',
 					'shortcuts' => array(
-						'create' => array(
-							'name' 	=> 'sample:create_project',
-							'uri' 	=> 'admin/project/create',
+						'send' => array(
+							'name' 	=> 'sample:send',
+							'uri' 	=> 'admin/messages/send',
 							'class' => 'add'
 						)
 					)
-				),
-				'categories' => array(
-					'name' 	=> 'Category', 
-					'uri' 	=> 'admin/project/category',
-					'shortcuts' => array(
-						'create' => array(
-							'name' 	=> 'sample:category',
-							'uri' 	=> 'admin/project/category/create',
-							'class' => 'add'
-						)
-					)
-				),
-				'files' => array(
-					'name' 	=> 'files', 
-					'uri' 	=> 'admin/project/files',
-						'shortcuts' => array(
-							'create' => array(
-								'name' 	=> 'sample:add_file',
-								'uri' 	=> 'admin/project/school/create',
-								'class' => 'add'
-							)
-						)
 				)
-			),
-				'teams' => array(
-					'name' 	=> 'teams', 
-					'uri' 	=> 'admin/project/teams',
-						'shortcuts' => array(
-							'create' => array(
-								'name' 	=> 'sample:add_team',
-								'uri' 	=> 'admin/project/team/create',
-								'class' => 'add'
-							)
-						)
-				)
+			)
 			);			
+	}
+
+	public function install()
+	{
+		$this->dbforge->drop_table('messages_message');
+		$this->dbforge->drop_table('messages_users');
+
+		$message = array(
+			'id' => array(
+					'type' => 'INT',
+					'constraint' => 9,
+					'unsigned' => TRUE,
+					'auto_increment' => TRUE
+			),
+			'title' => array(
+					'type' => 'VARCHAR',
+					'constraint' => 100,
+					'unique' => TRUE
+			),
+			'body' => array(
+					'type' => 'VARCHAR',
+					'constraint' => 500,
+					'unique' => FALSE
+			)			
+		);
+		
+		$this->dbforge->add_key('id', TRUE);
+		$this->dbforge->add_field($message);
+		$this->dbforge->create_table('messages_message');
+
+		$user_msgs = array(
+			'senderID' => array(
+					'type' => 'INT',
+					'constraint' => 9,
+					'unique' => FALSE
+			),
+			'recieverID' => array(
+					'type' => 'INT',
+					'constraint' => 9,
+					'unique' => FALSE
+			),
+			'messageID' => array(
+					'type' => 'VARCHAR',
+					'constraint' => 500,
+					'unique' => TRUE
+			)			
+		);
+
+		$this->dbforge->add_field($user_msgs);
+		$this->dbforge->create_table('messages_users');
+		return true;
 	}
 	
 	// public function install()
@@ -228,19 +246,16 @@ class Module_messages extends Module {
 	// 	return true;
 	// }
 
-	// public function uninstall()
-	// {
-	// 	$this->dbforge->drop_table('project_projects');
-	// 	$this->dbforge->drop_table('project_categories');
-	// 	$this->dbforge->drop_table('project_teams');
-	// 	$this->dbforge->drop_table('project_votes');
-	// 	$this->dbforge->drop_table('project_files');
+	public function uninstall()
+	{
+		$this->dbforge->drop_table('messages_message');
+		$this->dbforge->drop_table('messages_users');
 
-	// 	$this->db->delete('settings', array('module' => 'project'));
-	// 	{
-	// 		return TRUE;
-	// 	}
-	// }
+		$this->db->delete('settings', array('module' => 'messages'));
+		{
+			return TRUE;
+		}
+	}
 
 
 	public function upgrade($old_version)
