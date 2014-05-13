@@ -79,16 +79,17 @@ class Field_table_list
 		// Don't serialze, use a flag for when we output later
 		
 		// Lets remove the drop values
-		//var_dump($input);
 		$new_input = array();
-		foreach ($input as $key => $value) {
-			// If $key is even then go to if
-			if ($key%2 == 0) {
-				$new_input[$key] = $value;
-				$new_input['val'][$key] = $input[$key+1];
+		if ( is_array($input) )
+		{
+			foreach ($input as $key => $value) {
+				// If $key is even then go to if
+				if ($key%2 == 0) {
+					$new_input[$key] = $value;
+					$new_input['val'][$key] = $input[$key+1];
+				}
 			}
 		}
-		//var_dump($new_input['val']);
 		return empty($new_input[0]) ? 0 : serialize($new_input);
 	}
 

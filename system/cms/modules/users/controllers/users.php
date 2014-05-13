@@ -967,4 +967,19 @@ class Users extends Public_Controller
 		return true;
 	}
 
+	/**
+	 * Landing main page when user is not logged in
+	 * @return [type] [description]
+	 */
+	public function landing()
+	{
+		$this->template
+		->title('Nitaj Hub Project')
+		->append_css('endless-landing.min.css')
+		->append_js('waypoints.min.js')
+		->append_js('jquery.localscroll.min.js')
+		->append_js('jquery.scrollTo.min.js')
+		->build('landing');
+	}
+
 }
