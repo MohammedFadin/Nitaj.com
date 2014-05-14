@@ -14,11 +14,6 @@ class Project extends Public_Controller
              'rules'   => 'trim|required|min_length[5]|max_length[120]|xss_clean'
           ),
         array(
-             'field'   => 'project_logo', 
-             'label'   => 'Project Logo', 
-             'rules'   => 'trim|min_length[5]|max_length[120]|xss_clean'
-          ),
-        array(
              'field'   => 'project_category', 
              'label'   => 'Project Category', 
              'rules'   => 'trim|required|min_length[1]|max_length[10]|xss_clean'
@@ -61,8 +56,8 @@ class Project extends Public_Controller
         array(
              'field'   => 'project_description', 
              'label'   => 'Project Description', 
-             'rules'   => 'trim|required|min_length[5]|max_length[120]|xss_clean'
-          )                                                                                                                                                                                                                
+             'rules'   => 'trim|required|min_length[5]|xss_clean'
+          )                                                                                                                                                          
     );
 
     public function __construct() 
@@ -92,43 +87,76 @@ class Project extends Public_Controller
      */
     public function create() 
     {
+        if ( !$this->current_user )
+        {
+            redirect();
+        }        
         $this->form_validation->set_rules($this->validation_rules);
 
         $params = array();
-
         // Everything seems fine?
-        if ( $this->input->post() && $this->form_validation->run() == TRUE)
+        if ( $this->input->post() )
         {
-            foreach ($this->input->post() as $key => $value) 
+            // Check if project logo uploaded
+            if ( $_FILES['project_logo']['name'] == '')
             {
-                $params[$key] = $value;
-            }
-            $upload_config['upload_path'] = './resources/uploads';
-            $upload_config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $upload_config['max_size'] = '90000';
-
-            $this->load->library('upload', $upload_config);
-
-            // Check if upload is done right            
-            if ( ! $this->upload->do_upload('project_logo'))
+                $this->form_validation->set_rules('project_logo', 'project_logo', 'trim|required');
+            }            
+            if ( $this->form_validation->run() == TRUE )
             {
-                $error = array('error' => $this->upload->display_errors());
-            }
-            else
-            {
-                $params['project_logo'] = $this->upload->data()['file_name'];
-
-                // Upload went well, validation went well
-                // Lets crued the project data
-                if ( ! $this->project_m->add_project($params)) 
+                foreach ($this->input->post() as $key => $value) 
                 {
-                    $this->db->_error_message(); //change later
+                    $params[$key] = $value;
                 }
-                else 
+
+                $upload_config['upload_path'] = './resources/uploads';
+                $upload_config['allowed_types'] = 'gif|jpg|png|jpeg|doc|docx|pdf';
+                $upload_config['max_size'] = '90000';
+
+                $this->load->library('upload', $upload_config);
+
+                // Check if upload is done right            
+                if ( ! $this->upload->do_upload('project_logo'))
                 {
-                    redirect(site_url());
+                    $error = array('error' => $this->upload->display_errors());
                 }
-            } 
+                else
+                {
+                    $_project_logo = $this->upload->data();
+                    $params['project_logo'] = $_project_logo['file_name'];
+
+                    if ( $_FILES['project_files'] )
+                    {
+                        // var_dump($_FILES['project_logo']);
+                        $upload_config2['upload_path'] = './resources/uploads/projects_files';
+                        $upload_config2['allowed_types'] = 'gif|jpg|png|jpeg|doc|docx|pdf';
+                        $upload_config2['max_size'] = '90000';
+                        $this->load->library('upload', $upload_config2);
+
+                        // Check if upload is done right            
+                        if ( ! $this->upload->do_upload('project_files'))
+                        {
+                            $error = array('error' => $this->upload->display_errors());
+                        } 
+                        else
+                        {
+                            $_project_files = $this->upload->data();
+                            $params['project_files'] =  $_project_files['file_name']; 
+                        }
+
+                    }
+                    // Upload went well, validation went well
+                    // Lets crued the project data
+                    if ( ! $this->project_m->add_project($params)) 
+                    {
+                        $this->db->_error_message(); //change later
+                    }
+                    else 
+                    {
+                        redirect(site_url());
+                    }
+                }                 
+            }
         }
 
         $categories = $this->project_m->get_categories();
@@ -138,11 +166,6 @@ class Project extends Public_Controller
             $_categories[$category->id] = $category->name;
         }
 
-        // foreach ($this->input->post('tag') as $id => $team_member)
-        // {
-        //     echo $id;
-        // }
-        // 
         $this->template
         ->title(lang('project_header'))
         ->append_css('bootstrap-wysihtml5.css')
@@ -159,6 +182,66 @@ class Project extends Public_Controller
         ->set('categories', $_categories)
         ->build('create_view');
     }
+
+    public function view($id)
+    {
+        if ( !$this->current_user )
+        {
+            redirect();
+        }
+
+        // Let's fetch project based on id
+        $project = $this->project_m->get($id);
+        
+        // Get the teams ids
+        $users_ids = $this->db
+            ->where('project_id', $id)->get('project_teams')->result_array();
+        // Lets fetch the teams profiles
+
+        $team_profiles = array();
+
+        foreach ($users_ids as $key => $value) 
+        {
+            $team_profiles[$key] = $this->db
+            ->where('user_id', $value['user_id'])->get('profiles')->row_array();
+        }  
+
+        // $this->load->library('comments/comments', array(
+        //     'entry_id' => $id,
+        //     'entry_title' => 'Hello',
+        //     'module' => 'project',
+        //     'singular' => 'bmc:major',
+        //     'plural' => 'bmc:majors'
+        // ));
+
+        $this->template
+        ->set('project', $project)
+        ->set('project_team', $team_profiles)
+        ->build('project_view');
+    }
+
+    public function browse_projects()
+    {
+        if ( !$this->current_user )
+        {
+            redirect();
+        }
+        $category = array();
+        foreach ($this->project_m->get_categories() as $key => $value)
+        {
+            $category[$key]['id'] = $value->id;
+            $category[$key]['name'] = $value->name;
+        }
+
+        $projects = $this->project_m->get_all();
+
+        $this->template
+        ->title('Discover Projects')
+        ->set('projects', $projects)      
+        ->set('categories', $category)
+        ->build('browse_projects_view');
+    }
+
 
     /**
      * Ajax requests get users(members) names if exists

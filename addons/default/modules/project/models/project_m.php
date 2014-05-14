@@ -30,7 +30,6 @@ class Project_m extends MY_Model
                     'created_by' => $this->current_user->id
         );
 
-
         if ( $this->db->insert('project_projects', $insert) )
         {
             $last_insert_project = $this->db->insert_id();
@@ -46,6 +45,22 @@ class Project_m extends MY_Model
 
                     $this->db->insert('project_teams', $insert);    
                 }
+
+                // Lets insert the creator alone (we will fix this later)
+                $insert = array(
+                            'project_id' => $last_insert_project,
+                            'user_id'    => $this->current_user->id
+                );                
+                $this->db->insert('project_teams', $insert);
+            }
+
+            if ($params['project_files']) // If team members exists
+            {
+                    $insert = array(
+                                'file' => $params['project_files'],
+                                'project_id'    => $last_insert_project
+                    );
+                    $this->db->insert('project_files', $insert);    
             }
             return TRUE;
         }
@@ -53,6 +68,28 @@ class Project_m extends MY_Model
         {
             return FALSE;
         }
+    }
+
+    /**
+     * [get_all description]
+     * @return [type] [description]
+     */
+    public function get_all()
+    {
+        $this->db->get('project_projects');
+        $this->db->order_by('id', 'desc');
+        return $this->db->get('project_projects')->result_array();
+    }
+
+    /**
+     * [get description]
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function get($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->get('project_projects')->row_array();
     }
 
     /**

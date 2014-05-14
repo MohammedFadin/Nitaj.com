@@ -973,12 +973,31 @@ class Users extends Public_Controller
 	 */
 	public function landing()
 	{
+		$this->db->order_by('id', 'desc');
+		$project_timeline = $this->db->get('project_projects')->row_array();
+
+        $created_by_id = $this->db
+            ->where('user_id', $project_timeline['created_by'])->get('profiles')->row_array();
+
+        $project_timeline['created_by'] = $created_by_id;
+        $users_ids = $this->db
+            ->where('project_id', $project_timeline['id'])->get('project_teams')->result_array();
+
+        $team_timeline = array();
+
+        foreach ($users_ids as $key => $value) 
+        {
+            $team_timeline[$key] = $this->db
+            ->where('user_id', $value['user_id'])->get('profiles')->row_array();
+        }
+
 		$this->template
 		->title('Nitaj Hub Project')
-		->append_css('endless-landing.min.css')
 		->append_js('waypoints.min.js')
 		->append_js('jquery.localscroll.min.js')
 		->append_js('jquery.scrollTo.min.js')
+		->set('team', $team_timeline)
+		->set('projects', $project_timeline)
 		->build('landing');
 	}
 

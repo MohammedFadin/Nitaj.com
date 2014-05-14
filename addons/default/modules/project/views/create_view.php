@@ -119,7 +119,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-lg-2"><?php echo lang('project_files');?></label>
                                         <div class="col-lg-6">
-                                            <input type="file" name="project_files[]" multiple />
+                                            <input type="file" name="project_files" />
                                             <br/>
                                             <br/>
                                             <div class="alert">

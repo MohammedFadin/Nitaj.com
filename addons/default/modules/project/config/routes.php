@@ -24,7 +24,8 @@
 $route['bmc(/:num)?']			= 'bmc/index$1';
 $route['project/create/(:any)?']        = 'project/create';
 $route['bmc/(:num)/(:any)']		= 'bmc/download/$3';
-$route['resources/uploads/(:any)']	= 'google.com';
+$route['project/discover-projects']     = 'project/browse_projects';
+// $route['resources/uploads/(:any)']	= 'google.com';
 
 // test
 $route['bmc/test(/:num)?']			= 'test$1';
@@ -33,4 +34,3 @@ $route['bmc/test(/:num)?']			= 'test$1';
 // Pattern for the original map code: controller/method/paramw_with_$
 $route['bmc/admin/material_types(/:any)?'] = 'admin_material_types$1';
 $route['bmc/admin/courses(/:any)?'] = 'admin_courses$1';
-$route['bmc/admin/majors(/:any)?'] = 'admin_majors$1';
