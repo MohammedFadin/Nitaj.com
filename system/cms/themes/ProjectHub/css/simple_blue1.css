@@ -1,4 +1,3 @@
-/* Translated to RTL using cssrtl.py by Guy Rutenberg */
 * {
     font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif;
 }
@@ -11,7 +10,7 @@
     font-size: 90%;
 }
 .tag_input_text {
-    float: left;
+    float: right;
     padding: 0;
     width: 210;
     height: 32px;
@@ -20,9 +19,9 @@
     font-size: 14px;
 }
 .tag {
-    margin: 2px 0 2px 2px;
+    margin: 2px 2px 2px 0;
     padding: 5px 8px 5px 8px;
-    border-left: 1px solid #24A7AC;
+    border-right: 1px solid #24A7AC;
     border-bottom: 1px solid #24A7AC;
     background-color: #39cbd0;
     color: #fff;
@@ -34,7 +33,7 @@
 }
 .delete-tag {
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 0 0 5px;
     width: 14px;
     height: 14px;
     border-radius: 7px;
@@ -60,7 +59,7 @@
 }
 
 .SO_result {
-    float: right;
+    float: left;
     margin: 5px;
     padding: 0 5px 5px 5px;
     width: 210px;

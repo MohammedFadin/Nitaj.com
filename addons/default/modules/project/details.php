@@ -11,7 +11,7 @@ class Module_project extends Module {
 				'en' => 'Project Module'
 			),
 			'description' => array(
-				'en' => 'Project module - Senior Project.'
+				'en' => 'Project module - Senior .'
 			),
 			'frontend' => TRUE,
 			'backend' => TRUE,
