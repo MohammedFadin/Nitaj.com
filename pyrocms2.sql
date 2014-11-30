@@ -101,7 +101,7 @@ CREATE TABLE `core_users` (
 --
 
 INSERT INTO `core_users` (`id`, `email`, `password`, `salt`, `group_id`, `ip_address`, `active`, `activation_code`, `created_on`, `last_login`, `username`, `forgotten_password_code`, `remember_code`) VALUES
-(1, 'imohammad@me.com', 'f8dcee4fc3dea6fb1f519dc1bd0cc6c1b9a9918d', '26b9f', 1, '', 1, '', 1391189397, 1391189397, 'admin', NULL, NULL);
+(1, 'imohammad@me.com', 'GENERATE-YOUR-OWN-PASSWORD-HERE-PLEASE', '26b9f', 1, '', 1, '', 1391189397, 1391189397, 'admin', NULL, NULL);
 
 -- --------------------------------------------------------
 
